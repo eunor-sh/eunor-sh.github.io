@@ -2,3 +2,10 @@
 	path = public
 	url = https://github.com/eunor-sh/eunor-sh.github.io
 	branch = source
+[submodule "content"]
+	path = content
+	url = https://github.com/eunor-sh/eunor-sh.github.io
+	branch = content
+[submodule "themes/Book"]
+	path = themes/Book
+	url = https://github.com/eunor-sh/hugo-book-custom
