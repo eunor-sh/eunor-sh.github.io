@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Asciinema# Experimental, could change in the future or be removed
+Asciinema shortcode integrates asciinema player into the markdown page.
+{{&lt; asciinema cast=&#34;asciinema-627097.cast&#34; or cast=&#34;https://asciinema.org/a/vJNKUQFjuh7qKI2j3OoaKs8Jk.cast&#34; loop=true autoplay=true speed=2 &gt;}} Parameters# All parameters added to the shortcode will be transformed to options for Asciinema player, expect cast parameter that is used to locate cast file. Cast file follows same rules as portable image, it could be site resource, page resource or remote file URL.
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/docs/shortcodes/experimental/asciinema/">
+  <meta property="og:site_name" content="eunor">
+  <meta property="og:title" content="eunor">
+  <meta property="og:description" content="Asciinema# Experimental, could change in the future or be removed
+Asciinema shortcode integrates asciinema player into the markdown page.
+{{&lt; asciinema cast=&#34;asciinema-627097.cast&#34; or cast=&#34;https://asciinema.org/a/vJNKUQFjuh7qKI2j3OoaKs8Jk.cast&#34; loop=true autoplay=true speed=2 &gt;}} Parameters# All parameters added to the shortcode will be transformed to options for Asciinema player, expect cast parameter that is used to locate cast file. Cast file follows same rules as portable image, it could be site resource, page resource or remote file URL.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+
+
+  <meta itemprop="name" content="eunor">
+  <meta itemprop="description" content="Asciinema# Experimental, could change in the future or be removed
+Asciinema shortcode integrates asciinema player into the markdown page.
+{{&lt; asciinema cast=&#34;asciinema-627097.cast&#34; or cast=&#34;https://asciinema.org/a/vJNKUQFjuh7qKI2j3OoaKs8Jk.cast&#34; loop=true autoplay=true speed=2 &gt;}} Parameters# All parameters added to the shortcode will be transformed to options for Asciinema player, expect cast parameter that is used to locate cast file. Cast file follows same rules as portable image, it could be site resource, page resource or remote file URL.">
+  <meta itemprop="wordCount" content="76">
+
+<title>Asciinema | eunor</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/docs/shortcodes/experimental/asciinema/">
+<link rel="stylesheet" href="/book.min.95a684deb747f69ad4ffa2d052f0b0d03deefa43cbbfc0762b1b78ae74b27805.css" integrity="sha256-laaE3rdH9prU/6LQUvCw0D3u&#43;kPLv8B2Kxt4rnSyeAU=" crossorigin="anonymous">
+
+
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.1aa855efc1864484e56bdb804444331b609894e93ca3ee9c6faff56e38de107a.js" integrity="sha256-GqhV78GGRITla9uAREQzG2CYlOk8o&#43;6cb6/1bjjeEHo=" crossorigin="anonymous"></script>
+
+  <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous" />
+<script defer src="/toc-highlightjs.093016f0ef312174ad862fdcf5792e88ab5442bd39beecc38d15643f71ab5c31.min" integrity="sha256-CTAW8O8xIXSthi/c9XkuiKtUQr05vuzDjRVkP3GrXDE=" crossorigin="anonymous"></script>
+
+  
+</head>
+<body dir="ltr" class="book-kind-page book-type-docs">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<div class="sidebar-profile">
+  <div class="profile-img-wrap">
+    <a href="http://localhost:1313/">
+      <img src="/images/profile.jpg" alt="Profile" class="profile-img" />
+    </a>
+  </div>
+</div>
+
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>eunor</span>
+  </a>
+</h2>
+
+<div class="sidebar-social">
+  <a href="" target="_blank" title="GitHub" class="disabled">
+    <i class="fa-brands fa-github" style="font-size: 30px;"></i>
+  </a>
+  <a href="" target="_blank" title="Discord" class="disabled">
+    <i class="fa-brands fa-discord" style="font-size: 30px;"></i>
+  </a>
+  <a href="" target="_blank" title="Folder" class="disabled">
+    <i class="fa-solid fa-folder-open" style="font-size: 30px;"></i>
+  </a>
+  <a href="/tags/" title="Tags">
+    <i class="fa-solid fa-tags" style="font-size: 30px;"></i>
+  </a>
+</div>
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Search"
+    aria-label="Search"
+    maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <a href="/docs/example/" class="">
+      Example Site</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/example/table-of-contents/" class="">
+      Table of Contents</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/example/table-of-contents/with-toc/" class="">
+      With ToC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/example/table-of-contents/without-toc/" class="">
+      Without ToC</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c420203c411ae17012065778e25fbc94" class="toggle"  />
+    <label for="section-c420203c411ae17012065778e25fbc94" class="flex">
+      <a role="button" class="">
+        Collapsed</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/example/collapsed/3rd-level/" class="">
+      3rd Level</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/example/collapsed/3rd-level/4th-level/" class="">
+      4th Level</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <a>
+      Shortcodes</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/shortcodes/buttons/" class="">
+      Buttons</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/shortcodes/columns/" class="">
+      Columns</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/shortcodes/details/" class="">
+      Details</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-efc08733e1d8cc897ca0a309aca2e671" class="toggle" checked />
+    <label for="section-efc08733e1d8cc897ca0a309aca2e671" class="flex">
+      <a role="button" class="">
+        Experimental</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/shortcodes/experimental/asciinema/" class="active">
+      Asciinema</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/shortcodes/experimental/badges/" class="">
+      Badges</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/shortcodes/experimental/cards/" class="">
+      Cards</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/shortcodes/experimental/images/" class="">
+      Images</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/shortcodes/hints/" class="">
+      Hints</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/shortcodes/mermaid/" class="">
+      Mermaid</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/shortcodes/steps/" class="">
+      Steps</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/shortcodes/tabs/" class="">
+      Tabs</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/shortcodes/katex/" class="">
+      KaTeX</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+<ul><li><a href="/posts/" title="Blog">Blog</a></li><li><a href="https://github.com/alex-shpak/hugo-book" target="_blank" rel="noopener">Github</a></li><li><a href="https://themes.gohugo.io/themes/hugo-book/" target="_blank" rel="noopener">Hugo Themes</a></li></ul>
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Asciinema</h3>
+  <h3>  <a href="http://localhost:1313/" class="site-title">eunor</a></h3>
+
+  <label for="toc-control">
+    
+    <img src="/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#asciinema">Asciinema</a>
+      <ul>
+        <li><a href="#parameters">Parameters</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="asciinema">Asciinema<a class="anchor" href="#asciinema">#</a></h1>
+<blockquote class='book-hint warning'>
+<p>Experimental, could change in the future or be removed</p></blockquote><p>Asciinema shortcode integrates asciinema player into the markdown page.</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span><span style="color:#78787e">{{</span><span style="color:#ff6ac1">&lt;</span> <span style="color:#57c7ff">asciinema</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#57c7ff">cast</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;asciinema-627097.cast&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#57c7ff">or</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#57c7ff">cast</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;https://asciinema.org/a/vJNKUQFjuh7qKI2j3OoaKs8Jk.cast&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#57c7ff">loop</span><span style="color:#ff6ac1">=</span><span style="color:#ff6ac1">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#57c7ff">autoplay</span><span style="color:#ff6ac1">=</span><span style="color:#ff6ac1">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#57c7ff">speed</span><span style="color:#ff6ac1">=</span><span style="color:#ff9f43">2</span> <span style="color:#ff6ac1">&gt;</span><span style="color:#78787e">}}</span></span></span></code></pre></div><link rel="stylesheet" href="/asciinema/asciinema-player.css" /><script defer src="/asciinema/asciinema-player.min.js"></script><script defer src="/asciinema/asciinema-auto.js"></script><div class="asciinema book-asciinema"id="asciinema-0"x-data-cast="asciinema-627097.cast"x-data-opts="{&#34;autoplay&#34;:true,&#34;loop&#34;:true,&#34;speed&#34;:2}"></div>
+
+<h2 id="parameters">Parameters<a class="anchor" href="#parameters">#</a></h2>
+<p>All parameters added to the shortcode will be transformed to options for Asciinema player, expect <code>cast</code> parameter that is used to locate cast file. Cast file follows same rules as portable image, it could be site resource, page resource or remote file URL.</p>
+<p><a href="https://docs.asciinema.org/manual/player/options/">List of Asciinema options</a></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+  <a class="flex align-center" href="https://github.com/alex-shpak/hugo-book/edit/main/exampleSite/content/docs/shortcodes/experimental/asciinema.md" target="_blank" rel="noopener edit">
+    <img src="/icons/edit.svg" class="book-icon" alt="Edit" />
+    <span>Edit this page</span>
+  </a>
+
+</div>
+
+</div>
+
+
+
+
+
+  
+  
+  
+  <div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/docs/shortcodes/details/" class="flex align-center">
+        <img src="/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>Details</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/docs/shortcodes/experimental/badges/" class="flex align-center">
+        <span>Badges</span>
+        <img src="/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+  
+
+
+ 
+        
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+        
+        
+  
+  <div class="book-copyright flex justify-center">
+    <small>eunor - <a href="https://creativecommons.org/licenses/by/4.0/legalcode">© CC BY 4.0</a></small>
+  </div>
+  
+ 
+        
+  
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#asciinema">Asciinema</a>
+      <ul>
+        <li><a href="#parameters">Parameters</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

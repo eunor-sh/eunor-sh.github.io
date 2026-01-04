@@ -1,6 +1,6 @@
 {
-  "name": "eunor Infra Lab",
-  "short_name": "eunor Infra Lab",
+  "name": "eunor",
+  "short_name": "eunor",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
