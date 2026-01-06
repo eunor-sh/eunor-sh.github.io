@@ -56,7 +56,7 @@ const pages = [
   "/categories/Development/golang/",
   "/docs/shortcodes/katex/",
   "/showcases/",
-  "/book.min.e15861d9f623fd0f1f9fa98b43b6fae001006201df270178e259820c2cfc07ed.css",
+  "/book.min.c458f00ae182c6193ff2937cdfd792ea024af4838faa49926345642a57de2ee2.css",
   "/en.search-data.min.acad26e1bdc9cc7bd824e07d161f41cc5497f24ad753b6a5c96094eac71f5702.json",
   "/en.search.min.174f4a3a9d0fb298cb91ca22cec5c290c8cb1aa753757bd39de54e217884d2ec.js",
   
