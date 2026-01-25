@@ -3,6 +3,13 @@ title: ""
 layout: landing
 ---
 
+<script>
+  // 블로그 처음 방문 시 /posts로 자동 리다이렉트
+  window.location.href = '/posts';
+</script>
+
+<!-- 이 내용은 리다이렉트용이므로 표시되지 않습니다 -->
+
 <div class="book-hero">
 
 # HUGO BOOK {anchor=false}
