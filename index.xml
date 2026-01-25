@@ -24,6 +24,13 @@
       <description>&lt;h1 id=&#34;at-me-ipso-nepotibus-nunc-celebratior-genus&#34;&gt;At me ipso nepotibus nunc celebratior genus&lt;a class=&#34;anchor&#34; href=&#34;#at-me-ipso-nepotibus-nunc-celebratior-genus&#34;&gt;#&lt;/a&gt;&lt;/h1&gt;&#xA;&lt;h2 id=&#34;tanto-oblite&#34;&gt;Tanto oblite&lt;a class=&#34;anchor&#34; href=&#34;#tanto-oblite&#34;&gt;#&lt;/a&gt;&lt;/h2&gt;&#xA;&lt;p&gt;Lorem markdownum pectora novis patenti igne sua opus aurae feras materiaque&#xA;illic demersit imago et aristas questaque posset. Vomit quoque suo inhaesuro&#xA;clara. Esse cumque, per referri triste. Ut exponit solisque communis in tendens&#xA;vincetis agisque iamque huic bene ante vetat omina Thebae rates. Aeacus servat&#xA;admonitu concidit, ad resimas vultus et rugas vultu &lt;strong&gt;dignamque&lt;/strong&gt; Siphnon.&lt;/p&gt;&#xA;&lt;p&gt;Quam iugulum regia simulacra, plus meruit humo pecorumque haesit, ab discedunt&#xA;dixit: ritu pharetramque. Exul Laurenti orantem modo, per densum missisque labor&#xA;manibus non colla unum, obiectat. Tu pervia collo, fessus quae Cretenque Myconon&#xA;crate! Tegumenque quae invisi sudore per vocari quaque plus ventis fluidos. Nodo&#xA;perque, fugisse pectora sorores.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>123Creating a New Theme</title>
+      <link>http://localhost:1313/categories/Development/golang/creating-a-new-theme-copy-2/</link>
+      <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/Development/golang/creating-a-new-theme-copy-2/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;a class=&#34;anchor&#34; href=&#34;#introduction&#34;&gt;#&lt;/a&gt;&lt;/h2&gt;&#xA;&lt;p&gt;This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.&lt;/p&gt;&#xA;&lt;p&gt;We&amp;rsquo;ll start with creating a new site with a very basic template. Then we&amp;rsquo;ll add in a few pages and posts. With small variations on that, you will be able to create many different types of web sites.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Creating a New Theme</title>
       <link>http://localhost:1313/posts/creating-a-new-theme-copy-10/</link>
       <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
@@ -113,6 +120,90 @@
       <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/migrate-from-jekyll/</guid>
       <description>&lt;h2 id=&#34;move-static-content-to-static&#34;&gt;Move static content to &lt;code&gt;static&lt;/code&gt;&lt;a class=&#34;anchor&#34; href=&#34;#move-static-content-to-static&#34;&gt;#&lt;/a&gt;&lt;/h2&gt;&#xA;&lt;p&gt;Jekyll has a rule that any directory not starting with &lt;code&gt;_&lt;/code&gt; will be copied as-is to the &lt;code&gt;_site&lt;/code&gt; output. Hugo keeps all static content under &lt;code&gt;static&lt;/code&gt;. You should therefore move it all there.&#xA;With Jekyll, something that looked like&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;▾ &amp;lt;root&amp;gt;/&#xA;    ▾ images/&#xA;        logo.png&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;should become&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;▾ &amp;lt;root&amp;gt;/&#xA;    ▾ static/&#xA;        ▾ images/&#xA;            logo.png&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as &lt;code&gt;CNAME&lt;/code&gt;) to be moved to &lt;code&gt;static&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>(Hu)go Template Primer</title>
+      <link>http://localhost:1313/posts/goisforlovers-copy-10/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/goisforlovers-copy-10/</guid>
+      <description>&lt;p&gt;Hugo uses the excellent &lt;a href=&#34;https://golang.org/&#34;&gt;Go&lt;/a&gt; &lt;a href=&#34;https://golang.org/pkg/html/template/&#34;&gt;html/template&lt;/a&gt; library for&#xA;its template engine. It is an extremely lightweight engine that provides a very&#xA;small amount of logic. In our experience that it is just the right amount of&#xA;logic to be able to create a good static website. If you have used other&#xA;template systems from different languages or frameworks you will find a lot of&#xA;similarities in Go templates.&lt;/p&gt;&#xA;&lt;p&gt;This document is a brief primer on using Go templates. The &lt;a href=&#34;https://golang.org/pkg/html/template/&#34;&gt;Go docs&lt;/a&gt;&#xA;provide more details.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>(Hu)go Template Primer</title>
+      <link>http://localhost:1313/posts/goisforlovers-copy-11/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/goisforlovers-copy-11/</guid>
+      <description>&lt;p&gt;Hugo uses the excellent &lt;a href=&#34;https://golang.org/&#34;&gt;Go&lt;/a&gt; &lt;a href=&#34;https://golang.org/pkg/html/template/&#34;&gt;html/template&lt;/a&gt; library for&#xA;its template engine. It is an extremely lightweight engine that provides a very&#xA;small amount of logic. In our experience that it is just the right amount of&#xA;logic to be able to create a good static website. If you have used other&#xA;template systems from different languages or frameworks you will find a lot of&#xA;similarities in Go templates.&lt;/p&gt;&#xA;&lt;p&gt;This document is a brief primer on using Go templates. The &lt;a href=&#34;https://golang.org/pkg/html/template/&#34;&gt;Go docs&lt;/a&gt;&#xA;provide more details.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>(Hu)go Template Primer</title>
+      <link>http://localhost:1313/posts/goisforlovers-copy-12/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/goisforlovers-copy-12/</guid>
+      <description>&lt;p&gt;Hugo uses the excellent &lt;a href=&#34;https://golang.org/&#34;&gt;Go&lt;/a&gt; &lt;a href=&#34;https://golang.org/pkg/html/template/&#34;&gt;html/template&lt;/a&gt; library for&#xA;its template engine. It is an extremely lightweight engine that provides a very&#xA;small amount of logic. In our experience that it is just the right amount of&#xA;logic to be able to create a good static website. If you have used other&#xA;template systems from different languages or frameworks you will find a lot of&#xA;similarities in Go templates.&lt;/p&gt;&#xA;&lt;p&gt;This document is a brief primer on using Go templates. The &lt;a href=&#34;https://golang.org/pkg/html/template/&#34;&gt;Go docs&lt;/a&gt;&#xA;provide more details.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>(Hu)go Template Primer</title>
+      <link>http://localhost:1313/posts/goisforlovers-copy-2/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/goisforlovers-copy-2/</guid>
+      <description>&lt;p&gt;Hugo uses the excellent &lt;a href=&#34;https://golang.org/&#34;&gt;Go&lt;/a&gt; &lt;a href=&#34;https://golang.org/pkg/html/template/&#34;&gt;html/template&lt;/a&gt; library for&#xA;its template engine. It is an extremely lightweight engine that provides a very&#xA;small amount of logic. In our experience that it is just the right amount of&#xA;logic to be able to create a good static website. If you have used other&#xA;template systems from different languages or frameworks you will find a lot of&#xA;similarities in Go templates.&lt;/p&gt;&#xA;&lt;p&gt;This document is a brief primer on using Go templates. The &lt;a href=&#34;https://golang.org/pkg/html/template/&#34;&gt;Go docs&lt;/a&gt;&#xA;provide more details.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>(Hu)go Template Primer</title>
+      <link>http://localhost:1313/posts/goisforlovers-copy-3/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/goisforlovers-copy-3/</guid>
+      <description>&lt;p&gt;Hugo uses the excellent &lt;a href=&#34;https://golang.org/&#34;&gt;Go&lt;/a&gt; &lt;a href=&#34;https://golang.org/pkg/html/template/&#34;&gt;html/template&lt;/a&gt; library for&#xA;its template engine. It is an extremely lightweight engine that provides a very&#xA;small amount of logic. In our experience that it is just the right amount of&#xA;logic to be able to create a good static website. If you have used other&#xA;template systems from different languages or frameworks you will find a lot of&#xA;similarities in Go templates.&lt;/p&gt;&#xA;&lt;p&gt;This document is a brief primer on using Go templates. The &lt;a href=&#34;https://golang.org/pkg/html/template/&#34;&gt;Go docs&lt;/a&gt;&#xA;provide more details.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>(Hu)go Template Primer</title>
+      <link>http://localhost:1313/posts/goisforlovers-copy-4/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/goisforlovers-copy-4/</guid>
+      <description>&lt;p&gt;Hugo uses the excellent &lt;a href=&#34;https://golang.org/&#34;&gt;Go&lt;/a&gt; &lt;a href=&#34;https://golang.org/pkg/html/template/&#34;&gt;html/template&lt;/a&gt; library for&#xA;its template engine. It is an extremely lightweight engine that provides a very&#xA;small amount of logic. In our experience that it is just the right amount of&#xA;logic to be able to create a good static website. If you have used other&#xA;template systems from different languages or frameworks you will find a lot of&#xA;similarities in Go templates.&lt;/p&gt;&#xA;&lt;p&gt;This document is a brief primer on using Go templates. The &lt;a href=&#34;https://golang.org/pkg/html/template/&#34;&gt;Go docs&lt;/a&gt;&#xA;provide more details.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>(Hu)go Template Primer</title>
+      <link>http://localhost:1313/posts/goisforlovers-copy-5/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/goisforlovers-copy-5/</guid>
+      <description>&lt;p&gt;Hugo uses the excellent &lt;a href=&#34;https://golang.org/&#34;&gt;Go&lt;/a&gt; &lt;a href=&#34;https://golang.org/pkg/html/template/&#34;&gt;html/template&lt;/a&gt; library for&#xA;its template engine. It is an extremely lightweight engine that provides a very&#xA;small amount of logic. In our experience that it is just the right amount of&#xA;logic to be able to create a good static website. If you have used other&#xA;template systems from different languages or frameworks you will find a lot of&#xA;similarities in Go templates.&lt;/p&gt;&#xA;&lt;p&gt;This document is a brief primer on using Go templates. The &lt;a href=&#34;https://golang.org/pkg/html/template/&#34;&gt;Go docs&lt;/a&gt;&#xA;provide more details.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>(Hu)go Template Primer</title>
+      <link>http://localhost:1313/posts/goisforlovers-copy-6/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/goisforlovers-copy-6/</guid>
+      <description>&lt;p&gt;Hugo uses the excellent &lt;a href=&#34;https://golang.org/&#34;&gt;Go&lt;/a&gt; &lt;a href=&#34;https://golang.org/pkg/html/template/&#34;&gt;html/template&lt;/a&gt; library for&#xA;its template engine. It is an extremely lightweight engine that provides a very&#xA;small amount of logic. In our experience that it is just the right amount of&#xA;logic to be able to create a good static website. If you have used other&#xA;template systems from different languages or frameworks you will find a lot of&#xA;similarities in Go templates.&lt;/p&gt;&#xA;&lt;p&gt;This document is a brief primer on using Go templates. The &lt;a href=&#34;https://golang.org/pkg/html/template/&#34;&gt;Go docs&lt;/a&gt;&#xA;provide more details.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>(Hu)go Template Primer</title>
+      <link>http://localhost:1313/posts/goisforlovers-copy-7/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/goisforlovers-copy-7/</guid>
+      <description>&lt;p&gt;Hugo uses the excellent &lt;a href=&#34;https://golang.org/&#34;&gt;Go&lt;/a&gt; &lt;a href=&#34;https://golang.org/pkg/html/template/&#34;&gt;html/template&lt;/a&gt; library for&#xA;its template engine. It is an extremely lightweight engine that provides a very&#xA;small amount of logic. In our experience that it is just the right amount of&#xA;logic to be able to create a good static website. If you have used other&#xA;template systems from different languages or frameworks you will find a lot of&#xA;similarities in Go templates.&lt;/p&gt;&#xA;&lt;p&gt;This document is a brief primer on using Go templates. The &lt;a href=&#34;https://golang.org/pkg/html/template/&#34;&gt;Go docs&lt;/a&gt;&#xA;provide more details.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>(Hu)go Template Primer</title>
+      <link>http://localhost:1313/posts/goisforlovers-copy-8/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/goisforlovers-copy-8/</guid>
+      <description>&lt;p&gt;Hugo uses the excellent &lt;a href=&#34;https://golang.org/&#34;&gt;Go&lt;/a&gt; &lt;a href=&#34;https://golang.org/pkg/html/template/&#34;&gt;html/template&lt;/a&gt; library for&#xA;its template engine. It is an extremely lightweight engine that provides a very&#xA;small amount of logic. In our experience that it is just the right amount of&#xA;logic to be able to create a good static website. If you have used other&#xA;template systems from different languages or frameworks you will find a lot of&#xA;similarities in Go templates.&lt;/p&gt;&#xA;&lt;p&gt;This document is a brief primer on using Go templates. The &lt;a href=&#34;https://golang.org/pkg/html/template/&#34;&gt;Go docs&lt;/a&gt;&#xA;provide more details.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>(Hu)go Template Primer</title>
+      <link>http://localhost:1313/posts/goisforlovers-copy-9/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/goisforlovers-copy-9/</guid>
+      <description>&lt;p&gt;Hugo uses the excellent &lt;a href=&#34;https://golang.org/&#34;&gt;Go&lt;/a&gt; &lt;a href=&#34;https://golang.org/pkg/html/template/&#34;&gt;html/template&lt;/a&gt; library for&#xA;its template engine. It is an extremely lightweight engine that provides a very&#xA;small amount of logic. In our experience that it is just the right amount of&#xA;logic to be able to create a good static website. If you have used other&#xA;template systems from different languages or frameworks you will find a lot of&#xA;similarities in Go templates.&lt;/p&gt;&#xA;&lt;p&gt;This document is a brief primer on using Go templates. The &lt;a href=&#34;https://golang.org/pkg/html/template/&#34;&gt;Go docs&lt;/a&gt;&#xA;provide more details.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>(Hu)go Template Primer</title>
+      <link>http://localhost:1313/posts/goisforlovers-copy/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/goisforlovers-copy/</guid>
+      <description>&lt;p&gt;Hugo uses the excellent &lt;a href=&#34;https://golang.org/&#34;&gt;Go&lt;/a&gt; &lt;a href=&#34;https://golang.org/pkg/html/template/&#34;&gt;html/template&lt;/a&gt; library for&#xA;its template engine. It is an extremely lightweight engine that provides a very&#xA;small amount of logic. In our experience that it is just the right amount of&#xA;logic to be able to create a good static website. If you have used other&#xA;template systems from different languages or frameworks you will find a lot of&#xA;similarities in Go templates.&lt;/p&gt;&#xA;&lt;p&gt;This document is a brief primer on using Go templates. The &lt;a href=&#34;https://golang.org/pkg/html/template/&#34;&gt;Go docs&lt;/a&gt;&#xA;provide more details.&lt;/p&gt;</description>
     </item>
     <item>
       <title>(Hu)go Template Primer</title>

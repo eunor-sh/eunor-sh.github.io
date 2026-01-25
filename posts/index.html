@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" data-theme="light">
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <!--
 Made with Book Theme
@@ -26,11 +26,20 @@ https://github.com/alex-shpak/hugo-book
 <link rel="icon" href="/favicon.png" >
 <link rel="manifest" href="/manifest.json">
 <link rel="canonical" href="http://localhost:1313/posts/">
-<link rel="stylesheet" href="/book.min.c458f00ae182c6193ff2937cdfd792ea024af4838faa49926345642a57de2ee2.css" integrity="sha256-xFjwCuGCxhk/8pN839eS6gJK9IOPqkmSY0VkKlfeLuI=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.d4630d1e730ffcfdbffcf98026eb00ece09e08bdc947e02c967e4a8b05dbdea6.css" integrity="sha256-1GMNHnMP/P2//PmAJusA7OCeCL3JR&#43;Asln5KiwXb3qY=" crossorigin="anonymous">
 
 
+  <link rel="preload" href="/search/data.min.17d28a0c8d93627f4a921044b849fbbc920d7ec05c28415a76d46bb196bf2544.json" as="fetch" crossorigin>
+  <script>
+    window.SEARCH_DATA_URL = "\/search\/data.min.17d28a0c8d93627f4a921044b849fbbc920d7ec05c28415a76d46bb196bf2544.json";
+  </script>
+ 
+  
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.174f4a3a9d0fb298cb91ca22cec5c290c8cb1aa753757bd39de54e217884d2ec.js" integrity="sha256-F09KOp0PspjLkcoizsXCkMjLGqdTdXvTneVOIXiE0uw=" crossorigin="anonymous"></script>
+  <script defer src="/search/fuse.min.a7fee2151eb66d778f700abdfc68ff1397920da509843433d29f699a86592d41.js" integrity="sha256-p/7iFR62bXePcAq9/Gj/E5eSDaUJhDQz0p9pmoZZLUE=" crossorigin="anonymous"></script>
+ 
+  
+  <script defer src="/search/input.min.81427554c362ede8097cb00ba24df520f6ff789599896ad172263049abcdbc02.js" integrity="sha256-gUJ1VMNi7egJfLALok31IPb/eJWZiWrRciYwSavNvAI=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 
@@ -39,9 +48,18 @@ https://github.com/alex-shpak/hugo-book
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous" />
 <script defer src="/toc-highlightjs.093016f0ef312174ad862fdcf5792e88ab5442bd39beecc38d15643f71ab5c31.min" integrity="sha256-CTAW8O8xIXSthi/c9XkuiKtUQr05vuzDjRVkP3GrXDE=" crossorigin="anonymous"></script>
 
+<script defer src="/theme-toggle.js"></script>
+
   
 </head>
 <body dir="ltr" class="book-kind-section book-type-posts">
+  <div class="theme-toggle">
+    <input type="checkbox" class="color_choice color_animate" id="mode" aria-label="Toggle dark mode">
+    <div class="theme-icons">
+      <span class="theme-icon light-icon">☀️</span>
+      <span class="theme-icon dark-icon">🌙</span>
+    </div>
+  </div>
   <input type="checkbox" class="hidden toggle" id="menu-control" />
   <input type="checkbox" class="hidden toggle" id="toc-control" />
   <main class="container flex">
@@ -64,13 +82,13 @@ https://github.com/alex-shpak/hugo-book
 </h2>
 
 <div class="sidebar-social">
-  <a href="" target="_blank" title="GitHub" class="disabled">
+  <a href="https://github.com/eunor-sh" target="_blank" title="GitHub">
     <i class="fa-brands fa-github" style="font-size: 30px;"></i>
   </a>
-  <a href="" target="_blank" title="Discord" class="disabled">
+  <a href="https://discord.com/users/263449551552249856" target="_blank" title="Discord">
     <i class="fa-brands fa-discord" style="font-size: 30px;"></i>
   </a>
-  <a href="" target="_blank" title="Folder" class="disabled">
+  <a href="/categories/" title="Categories">
     <i class="fa-solid fa-folder-open" style="font-size: 30px;"></i>
   </a>
   <a href="/tags/" title="Tags">
@@ -78,364 +96,660 @@ https://github.com/alex-shpak/hugo-book
   </a>
 </div>
 
-<div class="book-search hidden">
-  <input id="book-search-input" type="text" 
-    placeholder="Search"
-    aria-label="Search"
-    maxlength="64" data-hotkeys="s/" />
-  <div class="book-search-spinner hidden"></div>
-  <ul id="book-search-results"></ul>
+<div class="book-visitor-counter">
+  <div class="visitor-counter-item">
+    <span class="visitor-label">총 방문자</span>
+    <span class="visitor-count" id="total-visitors">--</span>
+  </div>
+  <div class="visitor-counter-item">
+    <span class="visitor-label">오늘</span>
+    <span class="visitor-count" id="today-visitors">--</span>
+  </div>
+  <div class="visitor-counter-item">
+    <span class="visitor-label">어제</span>
+    <span class="visitor-count" id="yesterday-visitors">--</span>
+  </div>
 </div>
-<script>document.querySelector(".book-search").classList.remove("hidden")</script>
 
+<style>
+.book-visitor-counter {
+  padding: 1rem;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 1rem;
+}
 
+.visitor-counter-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+}
 
+.visitor-counter-item:last-child {
+  margin-bottom: 0;
+}
 
+.visitor-label {
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
 
+.visitor-count {
+  font-weight: 600;
+  color: var(--color-text);
+  font-family: 'Courier New', monospace;
+  background: var(--color-background);
+  padding: 0.125rem 0.25rem;
+  border-radius: 3px;
+  min-width: 2rem;
+  text-align: center;
+}
 
+@media (prefers-color-scheme: dark) {
+  .visitor-count {
+    background: var(--color-background-alt);
+  }
+}
+</style>
 
-
-
-
-
-
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  
+  
+  const siteId = '\x3Cscript src="https://cdn.counter.dev/script.js" data-id="5f708f76-d485-4836-82a2-8249385d29a3" data-utcoffset="9">\x3C/script>'; 
 
   
-  <ul>
+  function updateVisitorCounts() {
+    
+    fetch(`https://api.counter.dev/v1/${siteId}`)
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('total-visitors').textContent = data.total || '--';
+        document.getElementById('today-visitors').textContent = data.today || '--';
+        document.getElementById('yesterday-visitors').textContent = data.yesterday || '--';
+      })
+      .catch(error => {
+        console.log('Visitor counter failed to load:', error);
+        
+      });
+  }
+
+  
+  updateVisitorCounts();
+
+  
+  fetch(`https://api.counter.dev/v1/${siteId}/hit`, { method: 'POST' })
+    .catch(error => console.log('Failed to increment counter:', error));
+});
+</script>
+
+<div class="book-search">
+  <button id="book-search-trigger" class="book-search-trigger" type="button" aria-label="검색">
+    <i class="fa-solid fa-magnifying-glass book-search-icon-inline" aria-hidden="true"></i>
+    <span class="search-placeholder" data-i18n-id="search.input.label" data-i18n-text="{&quot;`/`&quot;: &quot;$code&quot;}"><code>/</code> 를 눌러 검색하세요</span>
+  </button>
+  <div class="book-search-spinner hidden"></div>
+</div>
+
+
+
+<div class="book-categories">
+  <input type="checkbox" class="hidden toggle" id="categories-control" checked />
+  <label for="categories-control" class="categories-toggle categories-link">
+    
+    <a href="/categories/">
+      <i class="fa-solid fa-folder"></i>
+      <span>전체</span>
+      <span class="category-count">(27)</span>
+    </a>
+    <i class="fa-solid fa-chevron-down categories-arrow"></i>
+  </label>
+ 
+  <ul class="categories-menu" id="categories-menu">
+    
+    
     
       
-        <li class="book-section-flat" >
-          
-  
-  
-
-  
-    <a href="/docs/example/" class="">
-      Example Site</a>
-  
-
-          
-  <ul>
     
       
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/example/table-of-contents/" class="">
-      Table of Contents</a>
-  
-
-          
-  <ul>
     
       
-        <li>
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+        
           
-  
-  
-
-  
-    <a href="/docs/example/table-of-contents/with-toc/" class="">
-      With ToC</a>
-  
-
+          
+            
+          
+ 
+          
+          
+            
+            
+            
+              
+              
+            
+          
+        
+      
+    
+      
+        
+        
+          
+          
+ 
+          
+          
+            
+            
+            
+              
+              
+            
+          
+        
+      
+    
+      
+        
+        
+          
+          
+ 
+          
+          
+            
+            
+            
+              
+              
+            
+          
+        
+      
+    
+      
+        
+        
+          
+          
+ 
+          
+          
+            
+            
+            
+              
+              
+            
+          
+        
+      
+    
+      
+        
+        
+          
+          
+ 
+          
+          
+            
+            
+            
+              
+              
+            
+          
+        
+      
+    
+      
+        
+        
+          
+          
+ 
+          
+          
+            
+            
+            
+              
+              
+            
+          
+        
+      
+    
+      
+        
+        
+          
+          
+ 
+          
+          
+            
+            
+            
+              
+              
+            
+          
+        
+      
+    
+      
+        
+        
+          
+          
+ 
+          
+          
+            
+            
+            
+              
+              
+            
+          
+        
+      
+    
+      
+        
+        
+          
+          
+ 
+          
+          
+            
+            
+            
+              
+              
+            
+          
+        
+      
+    
+      
+        
+        
+          
+          
+ 
+          
+          
+            
+            
+            
+              
+              
+            
+          
+        
+      
+    
+      
+        
+        
+          
+          
+ 
+          
+          
+            
+            
+            
+              
+              
+            
+          
+        
+      
+    
+      
+        
+        
+          
+          
+ 
+          
+          
+            
+            
+            
+              
+              
+            
+          
+        
+      
+    
+      
+        
+        
+          
+          
+ 
+          
+          
+            
+            
+            
+              
+              
+            
+          
+        
+      
+    
+      
+        
+        
+          
+          
+ 
+          
+          
+            
+            
+            
+              
+              
+            
+          
+        
+      
+    
+ 
+    
+ 
+    
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          
+        
+      
+    
+      
+        
+          
+        
+      
+    
+      
+        
+          
+        
+      
+    
+      
+        
+          
+        
+      
+    
+      
+        
+          
+        
+      
+    
+      
+        
+          
+        
+      
+    
+      
+        
+          
+        
+      
+    
+      
+        
+          
+        
+      
+    
+      
+        
+          
+        
+      
+    
+      
+        
+          
+        
+      
+    
+      
+        
+          
+        
+      
+    
+      
+        
+          
+        
+      
+    
+      
+        
+          
+        
+      
+    
+      
+        
+          
+        
+      
+    
+ 
+    <li>
+      
+      <input type="checkbox" class="hidden toggle" id="cat-Development" />
+      <label for="cat-Development" class="categories-toggle categories-link">
+        <a href="/categories/Development/">
+          <i class="fa-solid fa-folder"></i>
+          
+Development
+          <span class="category-count">(14)</span>
+        </a>
+        <i class="fa-solid fa-chevron-down categories-arrow"></i>
+      </label>
+      <ul>
+        
+ 
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            
+              
+            
+          
+        
+          
+            
+              
+            
+          
+        
+          
+            
+              
+            
+          
+        
+          
+            
+              
+            
+          
+        
+          
+            
+              
+            
+          
+        
+          
+            
+              
+            
+          
+        
+          
+            
+              
+            
+          
+        
+          
+            
+              
+            
+          
+        
+          
+            
+              
+            
+          
+        
+          
+            
+              
+            
+          
+        
+          
+            
+              
+            
+          
+        
+          
+            
+              
+            
+          
+        
+          
+            
+              
+            
+          
+        
+          
+            
+              
+            
+          
+        
+ 
+        <li class="categories-link">
+          <a href="/categories/Development/golang/">
+            <i class="fa-solid fa-file"></i>
+            golang
+            <span class="category-count">(14)</span>
+          </a>
         </li>
+        
+      </ul>
       
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/example/table-of-contents/without-toc/" class="">
-      Without ToC</a>
-  
-
-        </li>
-      
+    </li>
     
   </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-c420203c411ae17012065778e25fbc94" class="toggle"  />
-    <label for="section-c420203c411ae17012065778e25fbc94" class="flex">
-      <a role="button" class="">
-        Collapsed</a>
-      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/example/collapsed/3rd-level/" class="">
-      3rd Level</a>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/example/collapsed/3rd-level/4th-level/" class="">
-      4th Level</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li class="book-section-flat" >
-          
-  
-  
-
-  
-    <a>
-      Shortcodes</a>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/shortcodes/buttons/" class="">
-      Buttons</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/shortcodes/columns/" class="">
-      Columns</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/shortcodes/details/" class="">
-      Details</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-efc08733e1d8cc897ca0a309aca2e671" class="toggle"  />
-    <label for="section-efc08733e1d8cc897ca0a309aca2e671" class="flex">
-      <a role="button" class="">
-        Experimental</a>
-      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/shortcodes/experimental/asciinema/" class="">
-      Asciinema</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/shortcodes/experimental/badges/" class="">
-      Badges</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/shortcodes/experimental/cards/" class="">
-      Cards</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/shortcodes/experimental/images/" class="">
-      Images</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/shortcodes/hints/" class="">
-      Hints</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/shortcodes/mermaid/" class="">
-      Mermaid</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/shortcodes/steps/" class="">
-      Steps</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/shortcodes/tabs/" class="">
-      Tabs</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/shortcodes/katex/" class="">
-      KaTeX</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-  </ul>
+</div>
 
 
 
@@ -445,8 +759,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-
-<ul><li><a href="/posts/" class="active" title="Blog">Blog</a></li><li><a href="https://github.com/alex-shpak/hugo-book" target="_blank" rel="noopener">Github</a></li><li><a href="https://themes.gohugo.io/themes/hugo-book/" target="_blank" rel="noopener">Hugo Themes</a></li></ul>
+<ul><li><a href="/posts/" class="active" title="Blog">Blog</a></li></ul>
 
 
 
@@ -733,7 +1046,7 @@ https://github.com/alex-shpak/hugo-book
 
       <footer class="book-footer">
         
-    
+  
 
 <div id="pagination-anchor"></div>
 <nav class="pagination">
@@ -772,6 +1085,12 @@ https://github.com/alex-shpak/hugo-book
       </a>
       
     
+      
+      <a href="/posts/page/3/#pagination-anchor" class="pagination-page pagination-link">
+        3
+      </a>
+      
+    
   </div>
  
   
@@ -782,7 +1101,6 @@ https://github.com/alex-shpak/hugo-book
   
  
 </nav>
-
 
  
         
@@ -821,16 +1139,21 @@ https://github.com/alex-shpak/hugo-book
       
         <li class="flex align-center">
           <a href="/categories/Development/">Development</a>
-          <span>2</span>
+          <span>14</span>
         </li>
       
         <li class="flex align-center">
           <a href="/categories/golang/">Golang</a>
-          <span>2</span>
+          <span>14</span>
         </li>
       
         <li class="flex align-center">
           <a href="/categories/Development/golang/">golang</a>
+          <span>0</span>
+        </li>
+      
+        <li class="flex align-center">
+          <a href="/categories/Development/jekyll/">jekyll</a>
           <span>0</span>
         </li>
       
@@ -845,17 +1168,17 @@ https://github.com/alex-shpak/hugo-book
       
         <li class="flex align-center">
           <a href="/tags/development/">Development</a>
-          <span>2</span>
+          <span>14</span>
         </li>
       
         <li class="flex align-center">
           <a href="/tags/go/">Go</a>
-          <span>2</span>
+          <span>14</span>
         </li>
       
         <li class="flex align-center">
           <a href="/tags/golang/">Golang</a>
-          <span>2</span>
+          <span>14</span>
         </li>
       
         <li class="flex align-center">
@@ -865,12 +1188,12 @@ https://github.com/alex-shpak/hugo-book
       
         <li class="flex align-center">
           <a href="/tags/templates/">Templates</a>
-          <span>1</span>
+          <span>13</span>
         </li>
       
         <li class="flex align-center">
           <a href="/tags/themes/">Themes</a>
-          <span>1</span>
+          <span>13</span>
         </li>
       
       </ul>
@@ -885,6 +1208,32 @@ https://github.com/alex-shpak/hugo-book
 </aside>
  
   </main>
+
+  
+<div id="book-search-modal" class="book-search-modal hidden" aria-hidden="true">
+  <div class="book-search-dialog" role="dialog" aria-modal="true">
+    <div class="book-search-header">
+      <span class="book-search-title">검색</span>
+      <button id="book-search-close" class="book-search-close" type="button" aria-label="Close search">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="book-search-input-row">
+      <input id="book-search-input" type="text"
+        placeholder="Search"
+        aria-label="Search"
+        maxlength="64" data-hotkeys="s/" />
+      <button class="book-search-icon" type="button" aria-label="Search">
+        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+      </button>
+      <div class="book-search-spinner hidden"></div>
+    </div>
+    <div class="book-search-results-wrap">
+      <ul id="book-search-results"></ul>
+    </div>
+  </div>
+</div>
+
 
   
 </body>
