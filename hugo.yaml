@@ -48,14 +48,6 @@ menu:
       url: "https://github.com/alex-shpak/hugo-book/"
       weight: 3
 
-  # before: []
-  after:
-    - name: "Github"
-      url: "https://github.com/alex-shpak/hugo-book"
-      weight: 10
-    - name: "Hugo Themes"
-      url: "https://themes.gohugo.io/themes/hugo-book/"
-      weight: 20
 
 params:
   # (Optional, default light) Sets color theme: light, dark or auto.
@@ -78,7 +70,7 @@ params:
   # (Optional, default docs) Specify root page to render child pages as menu.
   # Page is resoled by .GetPage function: https://gohugo.io/functions/getpage/
   # For backward compatibility you can set '*' to render all sections to menu. Acts same as '/'
-  BookSection: docs
+  BookSection: posts
 
   # (Optional, default none) Set template for commit link for the page. Requires enableGitInfo.
   # When set enabled 'Last Modified' and a link to the commit in the footer of the page.
@@ -125,3 +117,6 @@ params:
   BookTranslatedOnly: false
   BookMenu:
     profileImage: "/images/profile.jpg"
+
+  # Google Analytics
+  googleAnalytics: "G-91DBMDKLRT"  # 여기에 실제 GA4 측정 ID를 넣으세요 (예: G-ABC123DEF4)
