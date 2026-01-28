@@ -120,3 +120,8 @@ params:
 
   # Google Analytics
   googleAnalytics: "G-91DBMDKLRT"  # 여기에 실제 GA4 측정 ID를 넣으세요 (예: G-ABC123DEF4)
+
+  # GoatCounter (https://[code].goatcounter.com)
+  # "Allow adding visitor counts on your website"를 켜야 숫자 표시됨
+  goatCounterCode: "eunor-sh"
+
