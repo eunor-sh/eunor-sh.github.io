@@ -7,34 +7,41 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>[© CC BY 4.0](https://creativecommons.org/licenses/by/4.0/legalcode)</copyright>
-    <lastBuildDate>Wed, 02 Apr 2014 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 27 Jan 2026 17:43:21 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Development</title>
-      <link>http://localhost:1313/categories/Development/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/Development/</guid>
+      <title>Infrastructure</title>
+      <link>http://localhost:1313/categories/Infrastructure/</link>
+      <pubDate>Tue, 27 Jan 2026 17:43:21 +0900</pubDate>
+      <guid>http://localhost:1313/categories/Infrastructure/</guid>
       <description></description>
     </item>
     <item>
-      <title>Golang</title>
-      <link>http://localhost:1313/categories/golang/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/golang/</guid>
+      <title>OpenStack</title>
+      <link>http://localhost:1313/categories/OpenStack/</link>
+      <pubDate>Tue, 27 Jan 2026 17:43:21 +0900</pubDate>
+      <guid>http://localhost:1313/categories/OpenStack/</guid>
       <description></description>
     </item>
     <item>
-      <title>golang</title>
-      <link>http://localhost:1313/categories/Development/golang/</link>
+      <title>Kubernetes</title>
+      <link>http://localhost:1313/categories/Kubernetes/</link>
+      <pubDate>Tue, 27 Jan 2026 15:39:23 +0900</pubDate>
+      <guid>http://localhost:1313/categories/Kubernetes/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kubernetes</title>
+      <link>http://localhost:1313/categories/Infrastructure/Kubernetes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/Development/golang/</guid>
+      <guid>http://localhost:1313/categories/Infrastructure/Kubernetes/</guid>
       <description></description>
     </item>
     <item>
-      <title>jekyll</title>
-      <link>http://localhost:1313/categories/Development/jekyll/</link>
+      <title>OpenStack</title>
+      <link>http://localhost:1313/categories/Infrastructure/OpenStack/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/Development/jekyll/</guid>
+      <guid>http://localhost:1313/categories/Infrastructure/OpenStack/</guid>
       <description></description>
     </item>
   </channel>

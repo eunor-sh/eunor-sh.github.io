@@ -26,17 +26,17 @@ https://github.com/alex-shpak/hugo-book
 <link rel="icon" href="/favicon.png" >
 <link rel="manifest" href="/manifest.json">
 <link rel="canonical" href="http://localhost:1313/categories/Development/">
-<link rel="stylesheet" href="/book.min.96db359ff030de9851c87ef83e42c88b754d86e2fd124d0b4798f4c414789a8b.css" integrity="sha256-lts1n/Aw3phRyH74PkLIi3VNhuL9Ek0LR5j0xBR4mos=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.9b33dd6b6ff929ff273d72f8415b7e7ff89eff4def9ce8b7e9c0ebbd384c6409.css" integrity="sha256-mzPda2/5Kf8nPXL4QVt&#43;f/ie/03vnOi36cDrvThMZAk=" crossorigin="anonymous">
 
 
-  <link rel="preload" href="/search/data.min.69e089f0ab48cae2adaace72029bccf363252b81bdb23468770d79b56c92bea6.json" as="fetch" crossorigin>
+  <link rel="preload" href="/search/data.min.ea9c2614a63260836b426da5b3ee5a44c650c5dfacc1068313d04b2e12e1a902.json" as="fetch" crossorigin>
   <script>
-    window.SEARCH_DATA_URL = "\/search\/data.min.69e089f0ab48cae2adaace72029bccf363252b81bdb23468770d79b56c92bea6.json";
+    window.SEARCH_DATA_URL = "\/search\/data.min.ea9c2614a63260836b426da5b3ee5a44c650c5dfacc1068313d04b2e12e1a902.json";
   </script>
  
   
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/search/fuse.min.043710fe7516bff8d49b5dd9e3d9f4ee75c6f9a0bfb6d92304a1d0a51272b4be.js" integrity="sha256-BDcQ/nUWv/jUm13Z49n07nXG&#43;aC/ttkjBKHQpRJytL4=" crossorigin="anonymous"></script>
+  <script defer src="/search/fuse.min.98d55903429b70b75001711dd5009a09157039a6e0ac8317472c1dcdd8989cae.js" integrity="sha256-mNVZA0KbcLdQAXEd1QCaCRVwOabgrIMXRywdzdiYnK4=" crossorigin="anonymous"></script>
  
   
   <script defer src="/search/input.min.81427554c362ede8097cb00ba24df520f6ff789599896ad172263049abcdbc02.js" integrity="sha256-gUJ1VMNi7egJfLALok31IPb/eJWZiWrRciYwSavNvAI=" crossorigin="anonymous"></script>
@@ -102,61 +102,43 @@ https://github.com/alex-shpak/hugo-book
   </a>
 </div>
 
-<div class="book-visitor-counter">
-  <div class="visitor-counter-item">
-    <span class="visitor-label">총 방문자</span>
-    <span class="visitor-count" id="total-visitors">--</span>
-  </div>
-  <div class="visitor-counter-item">
-    <span class="visitor-label">오늘</span>
-    <span class="visitor-count" id="today-visitors">--</span>
-  </div>
-  <div class="visitor-counter-item">
-    <span class="visitor-label">어제</span>
-    <span class="visitor-count" id="yesterday-visitors">--</span>
-  </div>
+<div class="visitor-widget" aria-label="총 방문자">
+  <div class="visitor-widget__label">총 방문자</div>
+  <div class="visitor-widget__value" id="total-visitors">--</div>
 </div>
 
 <style>
-.book-visitor-counter {
-  padding: 1rem;
-  border-bottom: 1px solid var(--color-border);
-  margin-bottom: 1rem;
-}
-
-.visitor-counter-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.5rem;
-  font-size: 0.875rem;
-}
-
-.visitor-counter-item:last-child {
-  margin-bottom: 0;
-}
-
-.visitor-label {
-  color: var(--color-text-muted);
-  font-weight: 500;
-}
-
-.visitor-count {
-  font-weight: 600;
-  color: var(--color-text);
-  font-family: 'Courier New', monospace;
-  background: var(--color-background);
-  padding: 0.125rem 0.25rem;
-  border-radius: 3px;
-  min-width: 2rem;
+.visitor-widget {
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: var(--color-background-alt);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
   text-align: center;
 }
 
-@media (prefers-color-scheme: dark) {
-  .visitor-count {
-    background: var(--color-background-alt);
-  }
+.visitor-widget__label {
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  margin-bottom: 1rem;
 }
+
+.visitor-widget__value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-text);
+  font-family: 'Courier New', monospace;
+}
+
+[data-theme="dark"] .visitor-widget {
+  border: 1px solid var(--gray-500);
+}
+
+
 </style>
 
 <script>
@@ -169,20 +151,7 @@ document.addEventListener('DOMContentLoaded', function() {
     return;
   }
 
-  function formatDate(date) {
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
-    return `${year}-${month}-${day}`;
-  }
-
-  const today = new Date();
-  const yesterday = new Date(today);
-  yesterday.setDate(today.getDate() - 1);
-
   const totalUrl = `https://${siteCode}.goatcounter.com/counter/TOTAL.json`;
-  const todayUrl = `https://${siteCode}.goatcounter.com/counter/TOTAL.json?start=${formatDate(today)}&end=${formatDate(today)}`;
-  const yesterdayUrl = `https://${siteCode}.goatcounter.com/counter/TOTAL.json?start=${formatDate(yesterday)}&end=${formatDate(yesterday)}`;
 
   function fetchCount(url, elementId) {
     fetch(url)
@@ -196,8 +165,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   fetchCount(totalUrl, 'total-visitors');
-  fetchCount(todayUrl, 'today-visitors');
-  fetchCount(yesterdayUrl, 'yesterday-visitors');
 });
 </script><script data-goatcounter="https://eunor-sh.goatcounter.com/count"
     async src="//gc.zgo.at/count.js"></script>
@@ -219,7 +186,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <a href="/categories/">
       <i class="fa-solid fa-folder"></i>
       <span>전체</span>
-      <span class="category-count">(27)</span>
+      <span class="category-count">(10)</span>
     </a>
     <i class="fa-solid fa-chevron-down categories-arrow"></i>
   </label>
@@ -235,26 +202,6 @@ document.addEventListener('DOMContentLoaded', function() {
       
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
         
         
           
@@ -297,131 +244,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
           
           
- 
-          
-          
             
-            
-            
-              
-              
-            
-          
-        
-      
-    
-      
-        
-        
-          
-          
- 
-          
-          
-            
-            
-            
-              
-              
-            
-          
-        
-      
-    
-      
-        
-        
-          
-          
- 
-          
-          
-            
-            
-            
-              
-              
-            
-          
-        
-      
-    
-      
-        
-        
-          
-          
- 
-          
-          
-            
-            
-            
-              
-              
-            
-          
-        
-      
-    
-      
-        
-        
-          
-          
- 
-          
-          
-            
-            
-            
-              
-              
-            
-          
-        
-      
-    
-      
-        
-        
-          
-          
- 
-          
-          
-            
-            
-            
-              
-              
-            
-          
-        
-      
-    
-      
-        
-        
-          
-          
- 
-          
-          
-            
-            
-            
-              
-              
-            
-          
-        
-      
-    
-      
-        
-        
-          
           
  
           
@@ -521,26 +344,6 @@ document.addEventListener('DOMContentLoaded', function() {
       
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
         
           
         
@@ -554,7 +357,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
       
         
-          
+      
+    
+      
         
       
     
@@ -565,56 +370,6 @@ document.addEventListener('DOMContentLoaded', function() {
       
     
       
-        
-          
-        
-      
-    
-      
-        
-          
-        
-      
-    
-      
-        
-          
-        
-      
-    
-      
-        
-          
-        
-      
-    
-      
-        
-          
-        
-      
-    
-      
-        
-          
-        
-      
-    
-      
-        
-          
-        
-      
-    
-      
-        
-          
-        
-      
-    
-      
-        
-          
         
       
     
@@ -627,13 +382,13 @@ document.addEventListener('DOMContentLoaded', function() {
  
     <li>
       
-      <input type="checkbox" class="hidden toggle" id="cat-Development" />
-      <label for="cat-Development" class="categories-toggle categories-link">
-        <a href="/categories/Development/">
+      <input type="checkbox" class="hidden toggle" id="cat-Cloud-Native" />
+      <label for="cat-Cloud-Native" class="categories-toggle categories-link">
+        <a href="/categories/Cloud-Native/">
           <i class="fa-solid fa-folder"></i>
           
-Development
-          <span class="category-count">(14)</span>
+Cloud-Native
+          <span class="category-count">(4)</span>
         </a>
         <i class="fa-solid fa-chevron-down categories-arrow"></i>
       </label>
@@ -650,28 +405,6 @@ Development
           
         
           
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-            
-              
             
           
         
@@ -683,67 +416,17 @@ Development
         
           
             
-              
+          
+        
+          
             
           
         
           
             
-              
-            
           
         
           
-            
-              
-            
-          
-        
-          
-            
-              
-            
-          
-        
-          
-            
-              
-            
-          
-        
-          
-            
-              
-            
-          
-        
-          
-            
-              
-            
-          
-        
-          
-            
-              
-            
-          
-        
-          
-            
-              
-            
-          
-        
-          
-            
-              
-            
-          
-        
-          
-            
-              
             
           
         
@@ -755,10 +438,177 @@ Development
         
  
         <li class="categories-link">
+          <a href="/categories/Cloud-Native/Kubernetes/">
+            <img class="category-icon" src="/images/k8s-logo.svg" alt="Kubernetes" />
+            Kubernetes
+            <span class="category-count">(2)</span>
+          </a>
+        </li>
+        
+ 
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+            
+              
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+ 
+        <li class="categories-link">
+          <a href="/categories/Cloud-Native/OpenStack/">
+            <img class="category-icon" src="/images/openstack-logo.png" alt="OpenStack" />
+            OpenStack
+            <span class="category-count">(2)</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+    </li>
+    
+ 
+    
+    
+    
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          
+        
+      
+    
+      
+        
+          
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          
+        
+      
+    
+      
+        
+      
+    
+ 
+    <li>
+      
+      <input type="checkbox" class="hidden toggle" id="cat-Development" />
+      <label for="cat-Development" class="categories-toggle categories-link">
+        <a href="/categories/Development/">
+          <i class="fa-solid fa-folder"></i>
+          
+Development
+          <span class="category-count">(3)</span>
+        </a>
+        <i class="fa-solid fa-chevron-down categories-arrow"></i>
+      </label>
+      <ul>
+        
+ 
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              
+            
+          
+        
+          
+            
+              
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              
+            
+          
+        
+          
+            
+          
+        
+ 
+        <li class="categories-link">
           <a href="/categories/Development/golang/">
             <i class="fa-solid fa-file"></i>
             golang
-            <span class="category-count">(14)</span>
+            <span class="category-count">(3)</span>
           </a>
         </li>
         
@@ -856,46 +706,6 @@ Development
  
     
     
-  
-    
- 
-    
-    
-  
-    
- 
-    
-    
-  
-    
- 
-    
-    
-  
-    
- 
-    
-    
-  
-    
- 
-    
-    
-  
-    
- 
-    
-    
-  
-    
- 
-    
-    
-  
-    
- 
-    
-    
       
       
       
@@ -918,11 +728,6 @@ Development
  
     
     
-      
-      
-      
-      
-    
   
     
  
@@ -937,107 +742,15 @@ Development
     
  
     
-    
-      
-      
-      
-      
-    
-  
-    
- 
-    
-    
-      
-      
-      
-      
-    
-  
-    
- 
-    
-    
-      
-      
-      
-      
-    
-  
-    
- 
-    
-    
-      
-      
-      
-      
-    
-  
-    
- 
-    
-    
-      
-      
-      
-      
-    
-  
-    
- 
-    
-    
-      
-      
-      
-      
-    
-  
-    
- 
-    
-    
-      
-      
-      
-      
-    
-  
-    
- 
-    
-    
-      
-      
-      
-      
-    
-  
-    
- 
-    
-    
-      
-      
-      
-      
-    
-  
-    
- 
-    
-    
-      
-      
-      
-      
     
   
  
   <div class="list-header">
-    <h1><i class="fa-solid fa-folder"></i> Development</h1>
-    <p>전체 글 <em class="list-count">14</em></p>
+    <h1>
+      <i class="fa-solid fa-folder"></i>
+      Development
+    </h1>
+    <p>전체 글 <em class="list-count">3</em></p>
   </div>
  
   
@@ -1048,7 +761,10 @@ Development
       
       <div class="category-item">
         <a href="/categories/Development/golang" class="category-link">
-          <span class="category-name"><i class="fa-solid fa-file"></i> golang</span>
+          <span class="category-name">
+            <i class="fa-solid fa-file"></i>
+            golang
+          </span>
         </a>
       </div>
       
@@ -1071,12 +787,14 @@ Development
     
     <div class="post-categories">
       <a href="/categories/Development/" class="category">
-          <i class="fa-solid fa-folder"></i> 
+          <i class="fa-solid fa-folder"></i>
+          
 Development
         </a>
  
         <a href="/categories/Development/golang/" class="category">
-        <i class="fa-solid fa-file"></i> golang
+          <i class="fa-solid fa-file"></i>
+          golang
         </a></div>
     
   </div>
@@ -1084,7 +802,7 @@ Development
   <div class="post-content-area">
     <div class="post-text-area">
       <h2 class="post-title">
-        <a href="/posts/goisforlovers-copy-10/">(Hu)go Template Primer</a>
+        <a href="/posts/goisforlovers-copy/">(Hu)go Template Primer</a>
       </h2>
       <div class="post-summary">
         Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of …
@@ -1127,12 +845,14 @@ Development
     
     <div class="post-categories">
       <a href="/categories/Development/" class="category">
-          <i class="fa-solid fa-folder"></i> 
+          <i class="fa-solid fa-folder"></i>
+          
 Development
         </a>
  
         <a href="/categories/Development/golang/" class="category">
-        <i class="fa-solid fa-file"></i> golang
+          <i class="fa-solid fa-file"></i>
+          golang
         </a></div>
     
   </div>
@@ -1140,7 +860,7 @@ Development
   <div class="post-content-area">
     <div class="post-text-area">
       <h2 class="post-title">
-        <a href="/posts/goisforlovers-copy-11/">(Hu)go Template Primer</a>
+        <a href="/posts/goisforlovers/">(Hu)go Template Primer</a>
       </h2>
       <div class="post-summary">
         Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of …
@@ -1183,12 +903,14 @@ Development
     
     <div class="post-categories">
       <a href="/categories/Development/" class="category">
-          <i class="fa-solid fa-folder"></i> 
+          <i class="fa-solid fa-folder"></i>
+          
 Development
         </a>
  
         <a href="/categories/Development/golang/" class="category">
-        <i class="fa-solid fa-file"></i> golang
+          <i class="fa-solid fa-file"></i>
+          golang
         </a></div>
     
   </div>
@@ -1196,13 +918,14 @@ Development
   <div class="post-content-area">
     <div class="post-text-area">
       <h2 class="post-title">
-        <a href="/posts/goisforlovers-copy-12/">(Hu)go Template Primer</a>
+        <a href="/posts/hugoisforlovers/">Getting Started with Hugo</a>
       </h2>
       <div class="post-summary">
-        Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of …
+        Step 1. Install Hugo# Go to Hugo releases and download the appropriate version for your OS and architecture.
+Save it somewhere specific as we will …
       </div>
       <div class="post-summary-mobile">
-        Hugo uses the excellent Go html/template library for its template …
+        Step 1. Install Hugo# Go to Hugo releases and download the appropriate …
       </div>
       
  
@@ -1214,401 +937,7 @@ Development
         
         <a href="/tags/golang/" class="tag">#golang</a>
         
-        <a href="/tags/templates/" class="tag">#templates</a>
-        
-        <a href="/tags/themes/" class="tag">#themes</a>
-        
-        <a href="/tags/development/" class="tag">#development</a>
-        
-      </div>
-      
-    </div>
- 
-    
-  </div>
- 
-</article>
-      
-        <article class="post-item">
- 
-  <div class="post-meta">
-    <time datetime="2014-04-02">
-      2014년 04월 02일
-    </time>
-    
-    
-    <div class="post-categories">
-      <a href="/categories/Development/" class="category">
-          <i class="fa-solid fa-folder"></i> 
-Development
-        </a>
- 
-        <a href="/categories/Development/golang/" class="category">
-        <i class="fa-solid fa-file"></i> golang
-        </a></div>
-    
-  </div>
- 
-  <div class="post-content-area">
-    <div class="post-text-area">
-      <h2 class="post-title">
-        <a href="/posts/goisforlovers-copy-2/">(Hu)go Template Primer</a>
-      </h2>
-      <div class="post-summary">
-        Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of …
-      </div>
-      <div class="post-summary-mobile">
-        Hugo uses the excellent Go html/template library for its template …
-      </div>
-      
- 
-      
-      
-      <div class="post-tags">
-        
-        <a href="/tags/go/" class="tag">#go</a>
-        
-        <a href="/tags/golang/" class="tag">#golang</a>
-        
-        <a href="/tags/templates/" class="tag">#templates</a>
-        
-        <a href="/tags/themes/" class="tag">#themes</a>
-        
-        <a href="/tags/development/" class="tag">#development</a>
-        
-      </div>
-      
-    </div>
- 
-    
-  </div>
- 
-</article>
-      
-        <article class="post-item">
- 
-  <div class="post-meta">
-    <time datetime="2014-04-02">
-      2014년 04월 02일
-    </time>
-    
-    
-    <div class="post-categories">
-      <a href="/categories/Development/" class="category">
-          <i class="fa-solid fa-folder"></i> 
-Development
-        </a>
- 
-        <a href="/categories/Development/golang/" class="category">
-        <i class="fa-solid fa-file"></i> golang
-        </a></div>
-    
-  </div>
- 
-  <div class="post-content-area">
-    <div class="post-text-area">
-      <h2 class="post-title">
-        <a href="/posts/goisforlovers-copy-3/">(Hu)go Template Primer</a>
-      </h2>
-      <div class="post-summary">
-        Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of …
-      </div>
-      <div class="post-summary-mobile">
-        Hugo uses the excellent Go html/template library for its template …
-      </div>
-      
- 
-      
-      
-      <div class="post-tags">
-        
-        <a href="/tags/go/" class="tag">#go</a>
-        
-        <a href="/tags/golang/" class="tag">#golang</a>
-        
-        <a href="/tags/templates/" class="tag">#templates</a>
-        
-        <a href="/tags/themes/" class="tag">#themes</a>
-        
-        <a href="/tags/development/" class="tag">#development</a>
-        
-      </div>
-      
-    </div>
- 
-    
-  </div>
- 
-</article>
-      
-        <article class="post-item">
- 
-  <div class="post-meta">
-    <time datetime="2014-04-02">
-      2014년 04월 02일
-    </time>
-    
-    
-    <div class="post-categories">
-      <a href="/categories/Development/" class="category">
-          <i class="fa-solid fa-folder"></i> 
-Development
-        </a>
- 
-        <a href="/categories/Development/golang/" class="category">
-        <i class="fa-solid fa-file"></i> golang
-        </a></div>
-    
-  </div>
- 
-  <div class="post-content-area">
-    <div class="post-text-area">
-      <h2 class="post-title">
-        <a href="/posts/goisforlovers-copy-4/">(Hu)go Template Primer</a>
-      </h2>
-      <div class="post-summary">
-        Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of …
-      </div>
-      <div class="post-summary-mobile">
-        Hugo uses the excellent Go html/template library for its template …
-      </div>
-      
- 
-      
-      
-      <div class="post-tags">
-        
-        <a href="/tags/go/" class="tag">#go</a>
-        
-        <a href="/tags/golang/" class="tag">#golang</a>
-        
-        <a href="/tags/templates/" class="tag">#templates</a>
-        
-        <a href="/tags/themes/" class="tag">#themes</a>
-        
-        <a href="/tags/development/" class="tag">#development</a>
-        
-      </div>
-      
-    </div>
- 
-    
-  </div>
- 
-</article>
-      
-        <article class="post-item">
- 
-  <div class="post-meta">
-    <time datetime="2014-04-02">
-      2014년 04월 02일
-    </time>
-    
-    
-    <div class="post-categories">
-      <a href="/categories/Development/" class="category">
-          <i class="fa-solid fa-folder"></i> 
-Development
-        </a>
- 
-        <a href="/categories/Development/golang/" class="category">
-        <i class="fa-solid fa-file"></i> golang
-        </a></div>
-    
-  </div>
- 
-  <div class="post-content-area">
-    <div class="post-text-area">
-      <h2 class="post-title">
-        <a href="/posts/goisforlovers-copy-5/">(Hu)go Template Primer</a>
-      </h2>
-      <div class="post-summary">
-        Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of …
-      </div>
-      <div class="post-summary-mobile">
-        Hugo uses the excellent Go html/template library for its template …
-      </div>
-      
- 
-      
-      
-      <div class="post-tags">
-        
-        <a href="/tags/go/" class="tag">#go</a>
-        
-        <a href="/tags/golang/" class="tag">#golang</a>
-        
-        <a href="/tags/templates/" class="tag">#templates</a>
-        
-        <a href="/tags/themes/" class="tag">#themes</a>
-        
-        <a href="/tags/development/" class="tag">#development</a>
-        
-      </div>
-      
-    </div>
- 
-    
-  </div>
- 
-</article>
-      
-        <article class="post-item">
- 
-  <div class="post-meta">
-    <time datetime="2014-04-02">
-      2014년 04월 02일
-    </time>
-    
-    
-    <div class="post-categories">
-      <a href="/categories/Development/" class="category">
-          <i class="fa-solid fa-folder"></i> 
-Development
-        </a>
- 
-        <a href="/categories/Development/golang/" class="category">
-        <i class="fa-solid fa-file"></i> golang
-        </a></div>
-    
-  </div>
- 
-  <div class="post-content-area">
-    <div class="post-text-area">
-      <h2 class="post-title">
-        <a href="/posts/goisforlovers-copy-6/">(Hu)go Template Primer</a>
-      </h2>
-      <div class="post-summary">
-        Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of …
-      </div>
-      <div class="post-summary-mobile">
-        Hugo uses the excellent Go html/template library for its template …
-      </div>
-      
- 
-      
-      
-      <div class="post-tags">
-        
-        <a href="/tags/go/" class="tag">#go</a>
-        
-        <a href="/tags/golang/" class="tag">#golang</a>
-        
-        <a href="/tags/templates/" class="tag">#templates</a>
-        
-        <a href="/tags/themes/" class="tag">#themes</a>
-        
-        <a href="/tags/development/" class="tag">#development</a>
-        
-      </div>
-      
-    </div>
- 
-    
-  </div>
- 
-</article>
-      
-        <article class="post-item">
- 
-  <div class="post-meta">
-    <time datetime="2014-04-02">
-      2014년 04월 02일
-    </time>
-    
-    
-    <div class="post-categories">
-      <a href="/categories/Development/" class="category">
-          <i class="fa-solid fa-folder"></i> 
-Development
-        </a>
- 
-        <a href="/categories/Development/golang/" class="category">
-        <i class="fa-solid fa-file"></i> golang
-        </a></div>
-    
-  </div>
- 
-  <div class="post-content-area">
-    <div class="post-text-area">
-      <h2 class="post-title">
-        <a href="/posts/goisforlovers-copy-7/">(Hu)go Template Primer</a>
-      </h2>
-      <div class="post-summary">
-        Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of …
-      </div>
-      <div class="post-summary-mobile">
-        Hugo uses the excellent Go html/template library for its template …
-      </div>
-      
- 
-      
-      
-      <div class="post-tags">
-        
-        <a href="/tags/go/" class="tag">#go</a>
-        
-        <a href="/tags/golang/" class="tag">#golang</a>
-        
-        <a href="/tags/templates/" class="tag">#templates</a>
-        
-        <a href="/tags/themes/" class="tag">#themes</a>
-        
-        <a href="/tags/development/" class="tag">#development</a>
-        
-      </div>
-      
-    </div>
- 
-    
-  </div>
- 
-</article>
-      
-        <article class="post-item">
- 
-  <div class="post-meta">
-    <time datetime="2014-04-02">
-      2014년 04월 02일
-    </time>
-    
-    
-    <div class="post-categories">
-      <a href="/categories/Development/" class="category">
-          <i class="fa-solid fa-folder"></i> 
-Development
-        </a>
- 
-        <a href="/categories/Development/golang/" class="category">
-        <i class="fa-solid fa-file"></i> golang
-        </a></div>
-    
-  </div>
- 
-  <div class="post-content-area">
-    <div class="post-text-area">
-      <h2 class="post-title">
-        <a href="/posts/goisforlovers-copy-8/">(Hu)go Template Primer</a>
-      </h2>
-      <div class="post-summary">
-        Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of …
-      </div>
-      <div class="post-summary-mobile">
-        Hugo uses the excellent Go html/template library for its template …
-      </div>
-      
- 
-      
-      
-      <div class="post-tags">
-        
-        <a href="/tags/go/" class="tag">#go</a>
-        
-        <a href="/tags/golang/" class="tag">#golang</a>
-        
-        <a href="/tags/templates/" class="tag">#templates</a>
-        
-        <a href="/tags/themes/" class="tag">#themes</a>
+        <a href="/tags/hugo/" class="tag">#hugo</a>
         
         <a href="/tags/development/" class="tag">#development</a>
         
@@ -1624,54 +953,6 @@ Development
     </div>
  
     
-
-<div id="pagination-anchor"></div>
-<nav class="pagination">
-  
-  
- 
-  
-  
-  
-  
-  
-    
-  
- 
-  
-  
-  
- 
-  
-  
-  <span class="pagination-nav disabled">
-    <i class="fa-solid fa-backward"></i> 이전
-  </span>
-  
- 
-  
-  <div class="pagination-pages">
-    
-      
-      <span class="pagination-page current" id="current-page">1</span>
-      
-    
-      
-      <a href="/categories/Development/page/2/#pagination-anchor" class="pagination-page pagination-link">
-        2
-      </a>
-      
-    
-  </div>
- 
-  
-  
-  <span class="pagination-nav disabled">
-    다음 <i class="fa-solid fa-forward"></i>
-  </span>
-  
- 
-</nav>
 
   </div>
   

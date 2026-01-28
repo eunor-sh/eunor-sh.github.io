@@ -19,22 +19,24 @@ https://github.com/alex-shpak/hugo-book
 
 
   <meta itemprop="name" content="Blog">
+  <meta itemprop="datePublished" content="2014-09-28T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2014-09-28T00:00:00+00:00">
 
 <title>Blog | eunor</title>
 <link rel="icon" href="/favicon.png" >
 <link rel="manifest" href="/manifest.json">
 <link rel="canonical" href="http://localhost:1313/posts/">
-<link rel="stylesheet" href="/book.min.96db359ff030de9851c87ef83e42c88b754d86e2fd124d0b4798f4c414789a8b.css" integrity="sha256-lts1n/Aw3phRyH74PkLIi3VNhuL9Ek0LR5j0xBR4mos=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.2938be273c96d8ce1a750043301e0d89f3a75da30abca339215fe028095d498e.css" integrity="sha256-KTi&#43;JzyW2M4adQBDMB4NifOnXaMKvKM5IV/gKAldSY4=" crossorigin="anonymous">
 
 
-  <link rel="preload" href="/search/data.min.69e089f0ab48cae2adaace72029bccf363252b81bdb23468770d79b56c92bea6.json" as="fetch" crossorigin>
+  <link rel="preload" href="/search/data.min.2a09688408f2c910fba8f39b2e2efd662841e7698fbf300db73c6dfa6f5ebd56.json" as="fetch" crossorigin>
   <script>
-    window.SEARCH_DATA_URL = "\/search\/data.min.69e089f0ab48cae2adaace72029bccf363252b81bdb23468770d79b56c92bea6.json";
+    window.SEARCH_DATA_URL = "\/search\/data.min.2a09688408f2c910fba8f39b2e2efd662841e7698fbf300db73c6dfa6f5ebd56.json";
   </script>
  
   
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/search/fuse.min.043710fe7516bff8d49b5dd9e3d9f4ee75c6f9a0bfb6d92304a1d0a51272b4be.js" integrity="sha256-BDcQ/nUWv/jUm13Z49n07nXG&#43;aC/ttkjBKHQpRJytL4=" crossorigin="anonymous"></script>
+  <script defer src="/search/fuse.min.c9b30e32034965a358a4b96e732868a57482b7481ddde9e645a410707edac26a.js" integrity="sha256-ybMOMgNJZaNYpLlucyhopXSCt0gd3enmRaQQcH7awmo=" crossorigin="anonymous"></script>
  
   
   <script defer src="/search/input.min.81427554c362ede8097cb00ba24df520f6ff789599896ad172263049abcdbc02.js" integrity="sha256-gUJ1VMNi7egJfLALok31IPb/eJWZiWrRciYwSavNvAI=" crossorigin="anonymous"></script>
@@ -100,61 +102,43 @@ https://github.com/alex-shpak/hugo-book
   </a>
 </div>
 
-<div class="book-visitor-counter">
-  <div class="visitor-counter-item">
-    <span class="visitor-label">총 방문자</span>
-    <span class="visitor-count" id="total-visitors">--</span>
-  </div>
-  <div class="visitor-counter-item">
-    <span class="visitor-label">오늘</span>
-    <span class="visitor-count" id="today-visitors">--</span>
-  </div>
-  <div class="visitor-counter-item">
-    <span class="visitor-label">어제</span>
-    <span class="visitor-count" id="yesterday-visitors">--</span>
-  </div>
+<div class="visitor-widget" aria-label="총 방문자">
+  <div class="visitor-widget__label">총 방문자</div>
+  <div class="visitor-widget__value" id="total-visitors">--</div>
 </div>
 
 <style>
-.book-visitor-counter {
-  padding: 1rem;
-  border-bottom: 1px solid var(--color-border);
-  margin-bottom: 1rem;
-}
-
-.visitor-counter-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.5rem;
-  font-size: 0.875rem;
-}
-
-.visitor-counter-item:last-child {
-  margin-bottom: 0;
-}
-
-.visitor-label {
-  color: var(--color-text-muted);
-  font-weight: 500;
-}
-
-.visitor-count {
-  font-weight: 600;
-  color: var(--color-text);
-  font-family: 'Courier New', monospace;
-  background: var(--color-background);
-  padding: 0.125rem 0.25rem;
-  border-radius: 3px;
-  min-width: 2rem;
+.visitor-widget {
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: var(--color-background-alt);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
   text-align: center;
 }
 
-@media (prefers-color-scheme: dark) {
-  .visitor-count {
-    background: var(--color-background-alt);
-  }
+.visitor-widget__label {
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  margin-bottom: 1rem;
 }
+
+.visitor-widget__value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-text);
+  font-family: 'Courier New', monospace;
+}
+
+[data-theme="dark"] .visitor-widget {
+  border: 1px solid var(--gray-500);
+}
+
+
 </style>
 
 <script>
@@ -167,24 +151,7 @@ document.addEventListener('DOMContentLoaded', function() {
     return;
   }
 
-  const timeZone = 'Asia/Seoul';
-
-  function formatDateInTimeZone(date) {
-    return new Intl.DateTimeFormat('en-CA', {
-      timeZone,
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit'
-    }).format(date);
-  }
-
-  const now = new Date();
-  const todayStr = formatDateInTimeZone(now);
-  const yesterdayStr = formatDateInTimeZone(new Date(now.getTime() - 24 * 60 * 60 * 1000));
-
   const totalUrl = `https://${siteCode}.goatcounter.com/counter/TOTAL.json`;
-  const todayUrl = `https://${siteCode}.goatcounter.com/counter/TOTAL.json?start=${todayStr}&end=${todayStr}`;
-  const yesterdayUrl = `https://${siteCode}.goatcounter.com/counter/TOTAL.json?start=${yesterdayStr}&end=${yesterdayStr}`;
 
   function fetchCount(url, elementId) {
     fetch(url)
@@ -198,8 +165,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   fetchCount(totalUrl, 'total-visitors');
-  fetchCount(todayUrl, 'today-visitors');
-  fetchCount(yesterdayUrl, 'yesterday-visitors');
 });
 </script><script data-goatcounter="https://eunor-sh.goatcounter.com/count"
     async src="//gc.zgo.at/count.js"></script>
@@ -221,7 +186,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <a href="/categories/">
       <i class="fa-solid fa-folder"></i>
       <span>전체</span>
-      <span class="category-count">(27)</span>
+      <span class="category-count">(13)</span>
     </a>
     <i class="fa-solid fa-chevron-down categories-arrow"></i>
   </label>
@@ -231,23 +196,23 @@ document.addEventListener('DOMContentLoaded', function() {
     
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
+        
+        
+          
+          
+            
+          
+ 
+          
+          
+            
+            
+            
+              
+              
+            
+          
+        
       
     
       
@@ -420,96 +385,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
       
     
-      
-        
-        
-          
-          
- 
-          
-          
-            
-            
-            
-              
-              
-            
-          
-        
-      
-    
-      
-        
-        
-          
-          
- 
-          
-          
-            
-            
-            
-              
-              
-            
-          
-        
-      
-    
-      
-        
-        
-          
-          
- 
-          
-          
-            
-            
-            
-              
-              
-            
-          
-        
-      
-    
-      
-        
-        
-          
-          
- 
-          
-          
-            
-            
-            
-              
-              
-            
-          
-        
-      
-    
-      
-        
-        
-          
-          
- 
-          
-          
-            
-            
-            
-              
-              
-            
-          
-        
-      
-    
  
     
  
@@ -517,7 +392,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     
       
-    
+        
+          
+        
       
     
       
@@ -527,13 +404,194 @@ document.addEventListener('DOMContentLoaded', function() {
       
     
       
-    
+        
       
     
       
-    
+        
       
     
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          
+        
+      
+    
+      
+        
+          
+        
+      
+    
+      
+        
+      
+    
+ 
+    <li>
+      
+      <input type="checkbox" class="hidden toggle" id="cat-Cloud-Native" />
+      <label for="cat-Cloud-Native" class="categories-toggle categories-link">
+        <a href="/categories/Cloud-Native/">
+          <i class="fa-solid fa-folder"></i>
+          
+Cloud-Native
+          <span class="category-count">(3)</span>
+        </a>
+        <i class="fa-solid fa-chevron-down categories-arrow"></i>
+      </label>
+      <ul>
+        
+ 
+        
+        
+        
+          
+            
+              
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+ 
+        <li class="categories-link">
+          <a href="/categories/Cloud-Native/Kubernetes/">
+            <img class="category-icon" src="/images/k8s-logo.svg" alt="Kubernetes" />
+            Kubernetes
+            <span class="category-count">(2)</span>
+          </a>
+        </li>
+        
+ 
+        
+        
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+              
+            
+          
+        
+          
+            
+          
+        
+ 
+        <li class="categories-link">
+          <a href="/categories/Cloud-Native/OpenStack/">
+            <img class="category-icon" src="/images/openstack-logo.png" alt="OpenStack" />
+            OpenStack
+            <span class="category-count">(1)</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+    </li>
+    
+ 
+    
+    
+    
+      
+        
       
     
       
@@ -580,43 +638,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
       
         
-          
-        
       
     
       
-        
-          
-        
-      
-    
-      
-        
-          
-        
-      
-    
-      
-        
-          
-        
-      
-    
-      
-        
-          
-        
-      
-    
-      
-        
-          
-        
-      
-    
-      
-        
-          
         
       
     
@@ -635,7 +659,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <i class="fa-solid fa-folder"></i>
           
 Development
-          <span class="category-count">(14)</span>
+          <span class="category-count">(7)</span>
         </a>
         <i class="fa-solid fa-chevron-down categories-arrow"></i>
       </label>
@@ -646,23 +670,7 @@ Development
         
         
           
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
+            
           
         
           
@@ -709,43 +717,9 @@ Development
         
           
             
-              
-            
           
         
           
-            
-              
-            
-          
-        
-          
-            
-              
-            
-          
-        
-          
-            
-              
-            
-          
-        
-          
-            
-              
-            
-          
-        
-          
-            
-              
-            
-          
-        
-          
-            
-              
             
           
         
@@ -760,7 +734,7 @@ Development
           <a href="/categories/Development/golang/">
             <i class="fa-solid fa-file"></i>
             golang
-            <span class="category-count">(14)</span>
+            <span class="category-count">(7)</span>
           </a>
         </li>
         
@@ -823,81 +797,7 @@ Development
   
   <article class="book-post markdown">
     <h2>
-      <a href="/posts/creating-a-new-theme-copy/">Creating a New Theme</a>
-    </h2>
-    <div class="book-post-container flex gap">
-      <div>
-        
-  <div class="flex align-center text-small book-post-date">
-    <img src="/icons/calendar.svg" class="book-icon" alt="Calendar" />
-    <span>September 28, 2014</span>
-  </div>
-
-
-
-  
-
-  
-
-
-        <div class="book-post-content markdown-inner"><h2 id="introduction">Introduction<a class="anchor" href="#introduction">#</a></h2>
-<p>This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&rsquo;ll explain how Hugo uses templates and …</p></div>
-      </div></div>
-  </article>
-  
-  <article class="book-post markdown">
-    <h2>
-      <a href="/posts/creating-a-new-theme/">Creating a New Theme</a>
-    </h2>
-    <div class="book-post-container flex gap">
-      <div>
-        
-  <div class="flex align-center text-small book-post-date">
-    <img src="/icons/calendar.svg" class="book-icon" alt="Calendar" />
-    <span>September 28, 2014</span>
-  </div>
-
-
-
-  
-
-  
-
-
-        <div class="book-post-content markdown-inner"><h2 id="introduction">Introduction<a class="anchor" href="#introduction">#</a></h2>
-<p>This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&rsquo;ll explain how Hugo uses templates and …</p></div>
-      </div></div>
-  </article>
-  
-  <article class="book-post markdown">
-    <h2>
-      <a href="/posts/migrate-from-jekyll/">Migrating from Jekyll</a>
-    </h2>
-    <div class="book-post-container flex gap">
-      <div>
-        
-  <div class="flex align-center text-small book-post-date">
-    <img src="/icons/calendar.svg" class="book-icon" alt="Calendar" />
-    <span>March 10, 2014</span>
-  </div>
-
-
-
-  
-
-  
-
-
-        <div class="book-post-content markdown-inner"><h2 id="move-static-content-to-static">Move static content to <code>static</code><a class="anchor" href="#move-static-content-to-static">#</a></h2>
-<p>Jekyll has a rule that any directory not starting with <code>_</code> will be copied as-is to the <code>_site</code> output. Hugo keeps all static content under <code>static</code>. You should therefore move it all there.
-With Jekyll, something that looked like</p>
-<pre><code>▾ …</code></pre></div>
-      </div></div>
-  </article>
-  
-  <article class="book-post markdown">
-    <h2>
-      <a href="/posts/goisforlovers-copy-10/">(Hu)go Template Primer</a>
+      <a href="/posts/openstakc-post-test/">(Hu)go Template Primer</a>
     </h2>
     <div class="book-post-container flex gap">
       <div>
@@ -912,8 +812,8 @@ With Jekyll, something that looked like</p>
   
   <div class="text-small">
     
-      <a href="/categories/Development/">Development</a>, 
-      <a href="/categories/golang/">Golang</a>
+      <a href="/categories/Cloud-Native/">Cloud-Native</a>, 
+      <a href="/categories/OpenStack/">OpenStack</a>
   </div>
   
 
@@ -938,7 +838,7 @@ logic to be able to create a good static …</p></div>
   
   <article class="book-post markdown">
     <h2>
-      <a href="/posts/goisforlovers-copy-11/">(Hu)go Template Primer</a>
+      <a href="/posts/hugoisforlovers/">Getting Started with Hugo</a>
     </h2>
     <div class="book-post-container flex gap">
       <div>
@@ -963,222 +863,18 @@ logic to be able to create a good static …</p></div>
     
       <a href="/tags/go/">Go</a>, 
       <a href="/tags/golang/">Golang</a>, 
-      <a href="/tags/templates/">Templates</a>, 
-      <a href="/tags/themes/">Themes</a>, 
+      <a href="/tags/hugo/">Hugo</a>, 
       <a href="/tags/development/">Development</a>
   </div>
   
 
 
-        <div class="book-post-content markdown-inner"><p>Hugo uses the excellent <a href="https://golang.org/">Go</a> <a href="https://golang.org/pkg/html/template/">html/template</a> library for
-its template engine. It is an extremely lightweight engine that provides a very
-small amount of logic. In our experience that it is just the right amount of
-logic to be able to create a good static …</p></div>
-      </div></div>
-  </article>
-  
-  <article class="book-post markdown">
-    <h2>
-      <a href="/posts/goisforlovers-copy-12/">(Hu)go Template Primer</a>
-    </h2>
-    <div class="book-post-container flex gap">
-      <div>
-        
-  <div class="flex align-center text-small book-post-date">
-    <img src="/icons/calendar.svg" class="book-icon" alt="Calendar" />
-    <span>April 2, 2014</span>
-  </div>
-
-
-
-  
-  <div class="text-small">
-    
-      <a href="/categories/Development/">Development</a>, 
-      <a href="/categories/golang/">Golang</a>
-  </div>
-  
-
-  
-  <div class="text-small">
-    
-      <a href="/tags/go/">Go</a>, 
-      <a href="/tags/golang/">Golang</a>, 
-      <a href="/tags/templates/">Templates</a>, 
-      <a href="/tags/themes/">Themes</a>, 
-      <a href="/tags/development/">Development</a>
-  </div>
-  
-
-
-        <div class="book-post-content markdown-inner"><p>Hugo uses the excellent <a href="https://golang.org/">Go</a> <a href="https://golang.org/pkg/html/template/">html/template</a> library for
-its template engine. It is an extremely lightweight engine that provides a very
-small amount of logic. In our experience that it is just the right amount of
-logic to be able to create a good static …</p></div>
-      </div></div>
-  </article>
-  
-  <article class="book-post markdown">
-    <h2>
-      <a href="/posts/goisforlovers-copy-2/">(Hu)go Template Primer</a>
-    </h2>
-    <div class="book-post-container flex gap">
-      <div>
-        
-  <div class="flex align-center text-small book-post-date">
-    <img src="/icons/calendar.svg" class="book-icon" alt="Calendar" />
-    <span>April 2, 2014</span>
-  </div>
-
-
-
-  
-  <div class="text-small">
-    
-      <a href="/categories/Development/">Development</a>, 
-      <a href="/categories/golang/">Golang</a>
-  </div>
-  
-
-  
-  <div class="text-small">
-    
-      <a href="/tags/go/">Go</a>, 
-      <a href="/tags/golang/">Golang</a>, 
-      <a href="/tags/templates/">Templates</a>, 
-      <a href="/tags/themes/">Themes</a>, 
-      <a href="/tags/development/">Development</a>
-  </div>
-  
-
-
-        <div class="book-post-content markdown-inner"><p>Hugo uses the excellent <a href="https://golang.org/">Go</a> <a href="https://golang.org/pkg/html/template/">html/template</a> library for
-its template engine. It is an extremely lightweight engine that provides a very
-small amount of logic. In our experience that it is just the right amount of
-logic to be able to create a good static …</p></div>
-      </div></div>
-  </article>
-  
-  <article class="book-post markdown">
-    <h2>
-      <a href="/posts/goisforlovers-copy-3/">(Hu)go Template Primer</a>
-    </h2>
-    <div class="book-post-container flex gap">
-      <div>
-        
-  <div class="flex align-center text-small book-post-date">
-    <img src="/icons/calendar.svg" class="book-icon" alt="Calendar" />
-    <span>April 2, 2014</span>
-  </div>
-
-
-
-  
-  <div class="text-small">
-    
-      <a href="/categories/Development/">Development</a>, 
-      <a href="/categories/golang/">Golang</a>
-  </div>
-  
-
-  
-  <div class="text-small">
-    
-      <a href="/tags/go/">Go</a>, 
-      <a href="/tags/golang/">Golang</a>, 
-      <a href="/tags/templates/">Templates</a>, 
-      <a href="/tags/themes/">Themes</a>, 
-      <a href="/tags/development/">Development</a>
-  </div>
-  
-
-
-        <div class="book-post-content markdown-inner"><p>Hugo uses the excellent <a href="https://golang.org/">Go</a> <a href="https://golang.org/pkg/html/template/">html/template</a> library for
-its template engine. It is an extremely lightweight engine that provides a very
-small amount of logic. In our experience that it is just the right amount of
-logic to be able to create a good static …</p></div>
-      </div></div>
-  </article>
-  
-  <article class="book-post markdown">
-    <h2>
-      <a href="/posts/goisforlovers-copy-4/">(Hu)go Template Primer</a>
-    </h2>
-    <div class="book-post-container flex gap">
-      <div>
-        
-  <div class="flex align-center text-small book-post-date">
-    <img src="/icons/calendar.svg" class="book-icon" alt="Calendar" />
-    <span>April 2, 2014</span>
-  </div>
-
-
-
-  
-  <div class="text-small">
-    
-      <a href="/categories/Development/">Development</a>, 
-      <a href="/categories/golang/">Golang</a>
-  </div>
-  
-
-  
-  <div class="text-small">
-    
-      <a href="/tags/go/">Go</a>, 
-      <a href="/tags/golang/">Golang</a>, 
-      <a href="/tags/templates/">Templates</a>, 
-      <a href="/tags/themes/">Themes</a>, 
-      <a href="/tags/development/">Development</a>
-  </div>
-  
-
-
-        <div class="book-post-content markdown-inner"><p>Hugo uses the excellent <a href="https://golang.org/">Go</a> <a href="https://golang.org/pkg/html/template/">html/template</a> library for
-its template engine. It is an extremely lightweight engine that provides a very
-small amount of logic. In our experience that it is just the right amount of
-logic to be able to create a good static …</p></div>
-      </div></div>
-  </article>
-  
-  <article class="book-post markdown">
-    <h2>
-      <a href="/posts/goisforlovers-copy-5/">(Hu)go Template Primer</a>
-    </h2>
-    <div class="book-post-container flex gap">
-      <div>
-        
-  <div class="flex align-center text-small book-post-date">
-    <img src="/icons/calendar.svg" class="book-icon" alt="Calendar" />
-    <span>April 2, 2014</span>
-  </div>
-
-
-
-  
-  <div class="text-small">
-    
-      <a href="/categories/Development/">Development</a>, 
-      <a href="/categories/golang/">Golang</a>
-  </div>
-  
-
-  
-  <div class="text-small">
-    
-      <a href="/tags/go/">Go</a>, 
-      <a href="/tags/golang/">Golang</a>, 
-      <a href="/tags/templates/">Templates</a>, 
-      <a href="/tags/themes/">Themes</a>, 
-      <a href="/tags/development/">Development</a>
-  </div>
-  
-
-
-        <div class="book-post-content markdown-inner"><p>Hugo uses the excellent <a href="https://golang.org/">Go</a> <a href="https://golang.org/pkg/html/template/">html/template</a> library for
-its template engine. It is an extremely lightweight engine that provides a very
-small amount of logic. In our experience that it is just the right amount of
-logic to be able to create a good static …</p></div>
+        <div class="book-post-content markdown-inner"><h2 id="step-1-install-hugo">Step 1. Install Hugo<a class="anchor" href="#step-1-install-hugo">#</a></h2>
+<p>Go to <a href="https://github.com/spf13/hugo/releases">Hugo releases</a> and download the
+appropriate version for your OS and architecture.</p>
+<p>Save it somewhere specific as we will be using it in the next step.</p>
+<p>More complete instructions are available at <a href="https://gohugo.io/getting-started/installing/">Install Hugo</a></p>
+<h2 id="step-2-build-the-docs">Step 2. Build the Docs …</h2></div>
       </div></div>
   </article>
   
@@ -1224,12 +920,6 @@ logic to be able to create a good static …</p></div>
     
       
       <span class="pagination-page current" id="current-page">2</span>
-      
-    
-      
-      <a href="/posts/page/3/#pagination-anchor" class="pagination-page pagination-link">
-        3
-      </a>
       
     
   </div>
@@ -1279,8 +969,28 @@ logic to be able to create a good static …</p></div>
       <ul>
       
         <li class="flex align-center">
+          <a href="/categories/Cloud-Native/">Cloud-Native</a>
+          <span>5</span>
+        </li>
+      
+        <li class="flex align-center">
+          <a href="/categories/Kubernetes/">Kubernetes</a>
+          <span>3</span>
+        </li>
+      
+        <li class="flex align-center">
           <a href="/categories/Development/">Development</a>
-          <span>14</span>
+          <span>7</span>
+        </li>
+      
+        <li class="flex align-center">
+          <a href="/categories/golang/">Golang</a>
+          <span>7</span>
+        </li>
+      
+        <li class="flex align-center">
+          <a href="/categories/OpenStack/">OpenStack</a>
+          <span>1</span>
         </li>
       
         <li class="flex align-center">
@@ -1289,12 +999,22 @@ logic to be able to create a good static …</p></div>
         </li>
       
         <li class="flex align-center">
-          <a href="/categories/golang/">Golang</a>
-          <span>14</span>
+          <a href="/categories/Development/jekyll/">jekyll</a>
+          <span>0</span>
         </li>
       
         <li class="flex align-center">
-          <a href="/categories/Development/jekyll/">jekyll</a>
+          <a href="/categories/Cloud-Native/Kubernetes/">Kubernetes</a>
+          <span>0</span>
+        </li>
+      
+        <li class="flex align-center">
+          <a href="/categories/Cloud-Native/OpenStack/">OpenStack</a>
+          <span>0</span>
+        </li>
+      
+        <li class="flex align-center">
+          <a href="/categories/OpenStakc/">OpenStakc</a>
           <span>0</span>
         </li>
       
@@ -1308,18 +1028,28 @@ logic to be able to create a good static …</p></div>
       <ul>
       
         <li class="flex align-center">
+          <a href="/tags/Cloud/">Cloud</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex align-center">
+          <a href="/tags/Cloud-Native/">Cloud-Native</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex align-center">
           <a href="/tags/development/">Development</a>
-          <span>14</span>
+          <span>8</span>
         </li>
       
         <li class="flex align-center">
           <a href="/tags/go/">Go</a>
-          <span>14</span>
+          <span>8</span>
         </li>
       
         <li class="flex align-center">
           <a href="/tags/golang/">Golang</a>
-          <span>14</span>
+          <span>8</span>
         </li>
       
         <li class="flex align-center">
@@ -1328,13 +1058,23 @@ logic to be able to create a good static …</p></div>
         </li>
       
         <li class="flex align-center">
+          <a href="/tags/K8s/">K8s</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex align-center">
+          <a href="/tags/Kubernetes/">Kubernetes</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex align-center">
           <a href="/tags/templates/">Templates</a>
-          <span>13</span>
+          <span>7</span>
         </li>
       
         <li class="flex align-center">
           <a href="/tags/themes/">Themes</a>
-          <span>13</span>
+          <span>7</span>
         </li>
       
       </ul>

@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/categories/OpenStack/">
+  <meta property="og:site_name" content="eunor">
+  <meta property="og:title" content="OpenStack">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="website">
+
+
+  <meta itemprop="name" content="OpenStack">
+  <meta itemprop="datePublished" content="2026-01-27T17:43:21+09:00">
+  <meta itemprop="dateModified" content="2026-01-27T17:43:21+09:00">
+
+<title>OpenStack | eunor</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/categories/OpenStack/">
+<link rel="stylesheet" href="/book.min.9b33dd6b6ff929ff273d72f8415b7e7ff89eff4def9ce8b7e9c0ebbd384c6409.css" integrity="sha256-mzPda2/5Kf8nPXL4QVt&#43;f/ie/03vnOi36cDrvThMZAk=" crossorigin="anonymous">
+
+
+  <link rel="preload" href="/search/data.min.a9f147004a190ac9381a42b3a68be826db407cf953ff2598eef4b372de251571.json" as="fetch" crossorigin>
+  <script>
+    window.SEARCH_DATA_URL = "\/search\/data.min.a9f147004a190ac9381a42b3a68be826db407cf953ff2598eef4b372de251571.json";
+  </script>
+ 
+  
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/search/fuse.min.79b054b23b1c37340f8485e869818723de06e1804b01afec9173fa4786505984.js" integrity="sha256-ebBUsjscNzQPhIXoaYGHI94G4YBLAa/skXP6R4ZQWYQ=" crossorigin="anonymous"></script>
+ 
+  
+  <script defer src="/search/input.min.81427554c362ede8097cb00ba24df520f6ff789599896ad172263049abcdbc02.js" integrity="sha256-gUJ1VMNi7egJfLALok31IPb/eJWZiWrRciYwSavNvAI=" crossorigin="anonymous"></script>
+
+  <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-91DBMDKLRT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-91DBMDKLRT');
+  </script>
+
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/categories/OpenStack/index.xml" title="eunor" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous" />
+<script defer src="/toc-highlightjs.093016f0ef312174ad862fdcf5792e88ab5442bd39beecc38d15643f71ab5c31.min" integrity="sha256-CTAW8O8xIXSthi/c9XkuiKtUQr05vuzDjRVkP3GrXDE=" crossorigin="anonymous"></script>
+
+<script defer src="/theme-toggle.js"></script>
+
+  
+</head>
+<body dir="ltr" class="book-kind-term book-type-categories">
+  <div class="theme-toggle">
+    <input type="checkbox" class="color_choice color_animate" id="mode" aria-label="Toggle dark mode">
+    <div class="theme-icons">
+      <span class="theme-icon light-icon">☀️</span>
+      <span class="theme-icon dark-icon">🌙</span>
+    </div>
+  </div>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<div class="sidebar-profile">
+  <div class="profile-img-wrap">
+    <a href="http://localhost:1313/">
+      <img src="/images/profile.jpg" alt="Profile" class="profile-img" />
+    </a>
+  </div>
+</div>
+
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>eunor</span>
+  </a>
+</h2>
+
+<div class="sidebar-social">
+  <a href="https://github.com/eunor-sh" target="_blank" title="GitHub">
+    <i class="fa-brands fa-github" style="font-size: 30px;"></i>
+  </a>
+  <a href="https://discord.com/users/263449551552249856" target="_blank" title="Discord">
+    <i class="fa-brands fa-discord" style="font-size: 30px;"></i>
+  </a>
+  <a href="/categories/" title="Categories">
+    <i class="fa-solid fa-folder-open" style="font-size: 30px;"></i>
+  </a>
+  <a href="/tags/" title="Tags">
+    <i class="fa-solid fa-tags" style="font-size: 30px;"></i>
+  </a>
+</div>
+
+<div class="visitor-widget" aria-label="총 방문자">
+  <div class="visitor-widget__label">총 방문자</div>
+  <div class="visitor-widget__value" id="total-visitors">--</div>
+</div>
+
+<style>
+.visitor-widget {
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: var(--color-background-alt);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  text-align: center;
+}
+
+.visitor-widget__label {
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.visitor-widget__value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-text);
+  font-family: 'Courier New', monospace;
+}
+
+[data-theme="dark"] .visitor-widget {
+  border: 1px solid var(--gray-500);
+}
+
+
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  
+  const siteCode = 'eunor-sh';
+
+  if (!siteCode) {
+    console.log('GoatCounter site code is missing.');
+    return;
+  }
+
+  const totalUrl = `https://${siteCode}.goatcounter.com/counter/TOTAL.json`;
+
+  function fetchCount(url, elementId) {
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById(elementId).textContent = data.count || '0';
+      })
+      .catch(error => {
+        console.log('GoatCounter counter failed to load:', error);
+      });
+  }
+
+  fetchCount(totalUrl, 'total-visitors');
+});
+</script><script data-goatcounter="https://eunor-sh.goatcounter.com/count"
+    async src="//gc.zgo.at/count.js"></script>
+
+<div class="book-search">
+  <button id="book-search-trigger" class="book-search-trigger" type="button" aria-label="검색">
+    <i class="fa-solid fa-magnifying-glass book-search-icon-inline" aria-hidden="true"></i>
+    <span class="search-placeholder" data-i18n-id="search.input.label" data-i18n-text="{&quot;`/`&quot;: &quot;$code&quot;}"><code>/</code> 를 눌러 검색하세요</span>
+  </button>
+  <div class="book-search-spinner hidden"></div>
+</div>
+
+
+
+<div class="book-categories">
+  <input type="checkbox" class="hidden toggle" id="categories-control" checked />
+  <label for="categories-control" class="categories-toggle categories-link">
+    
+    <a href="/categories/">
+      <i class="fa-solid fa-folder"></i>
+      <span>전체</span>
+      <span class="category-count">(3)</span>
+    </a>
+    <i class="fa-solid fa-chevron-down categories-arrow"></i>
+  </label>
+ 
+  <ul class="categories-menu" id="categories-menu">
+    
+    
+    
+      
+        
+        
+          
+          
+            
+          
+ 
+          
+          
+            
+            
+            
+              
+              
+            
+          
+        
+      
+    
+      
+        
+        
+          
+          
+ 
+          
+          
+            
+            
+            
+              
+              
+            
+          
+        
+      
+    
+      
+        
+        
+          
+          
+ 
+          
+          
+            
+            
+            
+              
+              
+            
+          
+        
+      
+    
+ 
+    
+ 
+    
+    
+    
+      
+        
+          
+        
+      
+    
+      
+        
+          
+        
+      
+    
+      
+        
+          
+        
+      
+    
+ 
+    <li>
+      
+      <input type="checkbox" class="hidden toggle" id="cat-Infrastructure" />
+      <label for="cat-Infrastructure" class="categories-toggle categories-link">
+        <a href="/categories/Infrastructure/">
+          <i class="fa-solid fa-folder"></i>
+          
+Infrastructure
+          <span class="category-count">(3)</span>
+        </a>
+        <i class="fa-solid fa-chevron-down categories-arrow"></i>
+      </label>
+      <ul>
+        
+ 
+        
+        
+        
+          
+            
+          
+        
+          
+            
+              
+            
+          
+        
+          
+            
+              
+            
+          
+        
+ 
+        <li class="categories-link">
+          <a href="/categories/Infrastructure/Kubernetes/">
+            <img class="category-icon" src="/images/k8s-logo.svg" alt="Kubernetes" />
+            Kubernetes
+            <span class="category-count">(2)</span>
+          </a>
+        </li>
+        
+ 
+        
+        
+        
+          
+            
+              
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+ 
+        <li class="categories-link">
+          <a href="/categories/Infrastructure/OpenStack/">
+            <img class="category-icon" src="/images/openstack-logo.png" alt="OpenStack" />
+            OpenStack
+            <span class="category-count">(1)</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+    </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+<ul><li><a href="/posts/" title="Blog">Blog</a></li></ul>
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>OpenStack</h3>
+  <h3>  <a href="http://localhost:1313/" class="site-title">eunor</a></h3>
+
+  <label for="toc-control">
+    
+  </label>
+</div>
+
+
+  
+ 
+      </header>
+
+      
+      
+  
+  <article class="markdown book-post">
+    <h2>
+      <a href="/posts/Infrastructure/OpenStack/">OpenStack</a>
+    </h2>
+    
+  <div class="flex align-center text-small book-post-date">
+    <img src="/icons/calendar.svg" class="book-icon" alt="Calendar" />
+    <span>January 27, 2026</span>
+  </div>
+
+
+
+  
+  <div class="text-small">
+    
+      <a href="/categories/Infrastructure/">Infrastructure</a>, 
+      <a href="/categories/OpenStack/">OpenStack</a>
+  </div>
+  
+
+  
+
+
+    <div class="book-post-content"></div>
+  </article>
+  
+  <article class="markdown book-post">
+    <h2>
+      <a href="/posts/Infrastructure/OpenStack/%EC%83%88%EA%B8%80/">공사중</a>
+    </h2>
+    
+  <div class="flex align-center text-small book-post-date">
+    <img src="/icons/calendar.svg" class="book-icon" alt="Calendar" />
+    <span>January 27, 2026</span>
+  </div>
+
+
+
+  
+  <div class="text-small">
+    
+      <a href="/categories/Infrastructure/">Infrastructure</a>, 
+      <a href="/categories/OpenStack/">OpenStack</a>
+  </div>
+  
+
+  
+
+
+    <div class="book-post-content"></div>
+  </article>
+  
+
+  
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+
+
+
+
+  
+  
+  
+
+
+ 
+        
+  
+ 
+        
+        
+  
+  <div class="book-copyright flex justify-center">
+    <small>eunor - <a href="https://creativecommons.org/licenses/by/4.0/legalcode">© CC BY 4.0</a></small>
+  </div>
+  
+ 
+        
+  
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+<aside class="book-toc">
+  <div class="book-toc-content">
+    
+  <nav>
+  <ul>
+  
+    
+    <li class="book-section-flat">
+      <a>Categories</a>
+      <ul>
+      
+        <li class="flex align-center">
+          <a href="/categories/Infrastructure/">Infrastructure</a>
+          <span>6</span>
+        </li>
+      
+        <li class="flex align-center">
+          <a href="/categories/OpenStack/">OpenStack</a>
+          <span>2</span>
+        </li>
+      
+        <li class="flex align-center">
+          <a href="/categories/Kubernetes/">Kubernetes</a>
+          <span>3</span>
+        </li>
+      
+        <li class="flex align-center">
+          <a href="/categories/Infrastructure/Kubernetes/">Kubernetes</a>
+          <span>0</span>
+        </li>
+      
+        <li class="flex align-center">
+          <a href="/categories/Infrastructure/OpenStack/">OpenStack</a>
+          <span>0</span>
+        </li>
+      
+      </ul>
+    </li>
+    
+  
+    
+    <li class="book-section-flat">
+      <a>Tags</a>
+      <ul>
+      
+        <li class="flex align-center">
+          <a href="/tags/Cloud/">Cloud</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex align-center">
+          <a href="/tags/Cloud-Native/">Cloud-Native</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex align-center">
+          <a href="/tags/K8s/">K8s</a>
+          <span>1</span>
+        </li>
+      
+        <li class="flex align-center">
+          <a href="/tags/Kubernetes/">Kubernetes</a>
+          <span>1</span>
+        </li>
+      
+      </ul>
+    </li>
+    
+  
+  </ul>
+</nav>
+
+
+  </div>
+</aside>
+ 
+  </main>
+
+  
+<div id="book-search-modal" class="book-search-modal hidden" aria-hidden="true">
+  <div class="book-search-dialog" role="dialog" aria-modal="true">
+    <div class="book-search-header">
+      <span class="book-search-title">검색</span>
+      <button id="book-search-close" class="book-search-close" type="button" aria-label="Close search">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="book-search-input-row">
+      <input id="book-search-input" type="text"
+        placeholder="Search"
+        aria-label="Search"
+        maxlength="64" data-hotkeys="s/" />
+      <button class="book-search-icon" type="button" aria-label="Search">
+        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+      </button>
+      <div class="book-search-spinner hidden"></div>
+    </div>
+    <div class="book-search-results-wrap">
+      <ul id="book-search-results"></ul>
+    </div>
+  </div>
+</div>
+
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
