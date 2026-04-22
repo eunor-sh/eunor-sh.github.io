@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkmy_blog=globalThis.webpackChunkmy_blog||[]).push([[4368],{2806(a){a.exports=JSON.parse('{"tag":{"label":"CKA","permalink":"/tags/cka","allTagsPath":"/tags","count":2,"unlisted":false},"listMetadata":{"permalink":"/tags/cka","page":1,"postsPerPage":10,"totalPages":1,"totalCount":2,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);

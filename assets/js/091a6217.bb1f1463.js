@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkmy_blog=globalThis.webpackChunkmy_blog||[]).push([[8860],{4617(a){a.exports=JSON.parse('{"tag":{"label":"Bonding","permalink":"/tags/bonding","allTagsPath":"/tags","count":1,"unlisted":false},"listMetadata":{"permalink":"/tags/bonding","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);

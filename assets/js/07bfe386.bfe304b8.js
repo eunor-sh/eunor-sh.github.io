@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkmy_blog=globalThis.webpackChunkmy_blog||[]).push([[8762],{7534(a){a.exports=JSON.parse('{"tag":{"label":"s3cmd","permalink":"/tags/s-3-cmd","allTagsPath":"/tags","count":1,"unlisted":false},"listMetadata":{"permalink":"/tags/s-3-cmd","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);

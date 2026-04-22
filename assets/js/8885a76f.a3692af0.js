@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkmy_blog=globalThis.webpackChunkmy_blog||[]).push([[7070],{5395(a){a.exports=JSON.parse('{"tag":{"label":"AWS","permalink":"/tags/aws","allTagsPath":"/tags","count":1,"unlisted":false},"listMetadata":{"permalink":"/tags/aws","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
